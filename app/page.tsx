@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { products } from '@/data/products';
 import HeroCarousel from '@/components/home/HeroCarousel';
 import CategoryBar from '@/components/home/CategoryBar';
@@ -62,9 +63,9 @@ export default async function HomePage() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold drop-shadow">Sale is Live 🔥</h2>
                     <p className="mt-2 text-white/85 text-base sm:text-lg md:text-xl">Up to 50% off on top brands</p>
-                    <a href="/search?category=sale" className="mt-5 bg-white text-primary font-semibold px-8 py-3 rounded-full text-base hover:bg-white/90 transition-colors">
+                    <Link href="/search?category=sale" className="mt-5 bg-white text-primary font-semibold px-8 py-3 rounded-full text-base hover:bg-white/90 transition-colors">
                         Shop Sale
-                    </a>
+                    </Link>
                 </div>
             </section>
 

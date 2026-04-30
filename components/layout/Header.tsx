@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Search, Heart, ShoppingCart, User, Menu, X, Sun, Moon, Globe, ChevronDown } from 'lucide-react';
@@ -25,6 +25,18 @@ export default function Header() {
     const [hoveredCat, setHoveredCat] = useState<string | null>(null);
     const [currencyOpen, setCurrencyOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+    const currencyRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!currencyOpen) return;
+        const handleClickOutside = (e: MouseEvent) => {
+            if (currencyRef.current && !currencyRef.current.contains(e.target as Node)) {
+                setCurrencyOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [currencyOpen]);
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
@@ -70,7 +82,7 @@ export default function Header() {
                 {/* Actions */}
                 <div className="flex items-center gap-1">
                     {/* Currency Selector */}
-                    <div className="relative hidden sm:block">
+                    <div ref={currencyRef} className="relative hidden sm:block">
                         <button
                             onClick={() => setCurrencyOpen(!currencyOpen)}
                             className="flex items-center gap-1 p-2 rounded-full hover:bg-secondary transition-colors text-foreground text-base font-medium"

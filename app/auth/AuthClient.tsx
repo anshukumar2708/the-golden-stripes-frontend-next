@@ -33,8 +33,8 @@ export default function AuthClient() {
             addresses: [],
         }));
         toast.success(isLogin ? 'Welcome back!' : 'Account created successfully!');
-        router.push('/');
         setLoading(false);
+        router.push('/');
     };
 
     return (

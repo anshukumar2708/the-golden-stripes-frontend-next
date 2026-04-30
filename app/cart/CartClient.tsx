@@ -17,7 +17,7 @@ export default function CartClient() {
     const subtotal = items.reduce((a, i) => a + i.product.originalPrice * i.quantity, 0);
     const discount = items.reduce((a, i) => a + (i.product.originalPrice - i.product.price) * i.quantity, 0);
     const total = subtotal - discount;
-    const delivery = total > 50 ? 0 : 5.99;
+    const delivery = total >= 50 ? 0 : 5.99;
     const grandTotal = total + delivery;
 
     if (items.length === 0) {

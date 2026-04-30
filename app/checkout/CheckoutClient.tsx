@@ -29,7 +29,7 @@ export default function CheckoutClient() {
     const subtotal = items.reduce((a, i) => a + i.product.price * i.quantity, 0);
     const originalSubtotal = items.reduce((a, i) => a + i.product.originalPrice * i.quantity, 0);
     const discount = originalSubtotal - subtotal;
-    const delivery = subtotal > 50 ? 0 : 5.99;
+    const delivery = subtotal - discount >= 50 ? 0 : 5.99;
     const total = subtotal + delivery;
 
     if (items.length === 0 && step !== 'success') {
