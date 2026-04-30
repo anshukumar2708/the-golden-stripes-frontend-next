@@ -16,6 +16,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const product = getProductById(id);
     if (!product) return { title: 'Product Not Found' };
 
+    const allVariants = product.variants.flatMap(v => v.sizes);
+    const inStock = allVariants.some(s => s.stock > 0);
+    const images = product.variants.flatMap(v => v.sizes.flatMap(s => s.images)).filter(Boolean);
+    const firstVariant = product.variants[0];
+
+    console.log('Rendering ProductDetailClient for product:', product);
+
     return {
         title: `${product.title} — ${product.brand}`,
         description: product.description,
@@ -23,19 +30,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         openGraph: {
             title: product.title,
             description: product.description,
-            images: [{ url: product.images[0], width: 800, height: 800, alt: product.title }],
+            images: [{ url: images[0], width: 800, height: 800, alt: product.title }],
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
             title: product.title,
             description: product.description,
-            images: [product.images[0]],
+            images: [images[0]],
         },
         other: {
-            'product:price:amount': String(product.price),
+            'product:price:amount': String(firstVariant?.sizes?.[0]?.price),
             'product:price:currency': 'USD',
-            'product:availability': product.inStock ? 'in stock' : 'out of stock',
+            'product:availability': inStock ? 'in stock' : 'out of stock',
         },
     };
 }

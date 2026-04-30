@@ -24,7 +24,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
-        dispatch(addToCart({ product, size: product.sizes[0] ?? 'One Size', color: product.colors[0] ?? 'Default' }));
+        dispatch(addToCart({ product, size: product.variants[0].sizes[0] ?? 'One Size', color: product.variants[0].color ?? 'Default' }));
         toast.success('Added to cart', { description: product.title });
     };
 
@@ -34,6 +34,12 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         dispatch(toggleWishlist(product));
         toast.success(isWished ? 'Removed from wishlist' : 'Added to wishlist');
     };
+
+    const allVariants = product.variants.flatMap(v => v.sizes);
+    const inStock = allVariants.some(s => s.stock > 0);
+    const colors = product.variants.map(v => v.color);
+
+    const firstVariant = product.variants[0];
 
     return (
         <motion.div
@@ -49,7 +55,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                     {/* Image */}
                     <div className="relative aspect-[8/9] bg-secondary overflow-hidden">
                         <Image
-                            src={product.images[0]}
+                            src={firstVariant?.sizes?.[0]?.images?.[0] || '/placeholder.png'}
                             alt={product.title}
                             fill
                             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -58,14 +64,14 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                         />
 
                         {/* Discount badge */}
-                        {product.discount > 0 && (
+                        {firstVariant?.sizes?.[0]?.discount > 0 && (
                             <span className="absolute top-3 left-3 gradient-sale text-white text-xs font-bold px-2.5 py-1 rounded-full">
-                                {product.discount}% OFF
+                                {firstVariant?.sizes[0]?.discount}% OFF
                             </span>
                         )}
 
                         {/* Out of stock */}
-                        {!product.inStock && (
+                        {!inStock && (
                             <div className="absolute inset-0 bg-background/60 flex items-center justify-center">
                                 <span className="bg-card text-muted-foreground text-sm font-semibold px-4 py-2 rounded-full border border-border">Out of Stock</span>
                             </div>
@@ -81,7 +87,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                         </button>
 
                         {/* Quick Add — hover */}
-                        {product.inStock && (
+                        {inStock && (
                             <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <button
                                     onClick={handleAddToCart}
@@ -103,24 +109,24 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                             <span className="text-sm text-muted-foreground">{product.rating} ({product.reviewCount.toLocaleString()})</span>
                         </div>
                         <div className="flex items-center gap-2 mt-2 flex-wrap">
-                            <span className="text-lg font-bold text-foreground">{format(product.price)}</span>
-                            {product.originalPrice > product.price && (
+                            <span className="text-lg font-bold text-foreground">{format(firstVariant?.sizes?.[0]?.price)}</span>
+                            {firstVariant?.sizes?.[0]?.originalPrice > firstVariant?.sizes?.[0]?.price && (
                                 <>
-                                    <span className="text-sm text-muted-foreground line-through">{format(product.originalPrice)}</span>
-                                    <span className="text-sm font-semibold text-primary">{product.discount}% off</span>
+                                    <span className="text-sm text-muted-foreground line-through">{format(firstVariant?.sizes?.[0]?.originalPrice)}</span>
+                                    <span className="text-sm font-semibold text-primary">{firstVariant?.sizes?.[0]?.discount}% off</span>
                                 </>
                             )}
                         </div>
                         {/* Color swatches */}
-                        {product.colors.length > 0 && product.colors[0] !== '' && (
+                        {colors?.length > 0 && (
                             <div className="flex gap-1 mt-2 flex-wrap">
-                                {product.colors.slice(0, 4).map(c => (
+                                {colors.slice(0, 4).map(c => (
                                     <span key={c} className="text-xs px-2 py-0.5 bg-secondary text-muted-foreground rounded border border-border">
                                         {c}
                                     </span>
                                 ))}
-                                {product.colors.length > 4 && (
-                                    <span className="text-xs px-1.5 py-0.5 text-muted-foreground">+{product.colors.length - 4}</span>
+                                {colors.length > 4 && (
+                                    <span className="text-xs px-1.5 py-0.5 text-muted-foreground">+{colors.length - 4}</span>
                                 )}
                             </div>
                         )}

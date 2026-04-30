@@ -1,33 +1,32 @@
-export interface ProductVariant {
-  size?: string;
-  color?: string;
+export interface SizeVariant {
+  size: string; 
   stock: number;
   sku: string;
-}
-
-export interface Product {
-  id: string;
-  title: string;
-  description: string;
   price: number;
   originalPrice: number;
   discount: number;
+  images: string[];
+}
+
+export interface ColorVariant {
+  color: string;
+  sizes: SizeVariant[];
+}
+export interface Product {
+  id: string;
+  title: string;
+  category: string;
+  subCategory: string;
+  tags: string[];
+  brand: string;
+  description: string;
   rating: number;
   reviewCount: number;
-  images: string[];
-  category: string;
-  subcategory: string;
-  brand: string;
-  colors: string[];
-  sizes: string[];
-  inStock: boolean;
-  stockQuantity: number;
-  tags: string[];
+  variants: ColorVariant[];
   sku: string;
   gtin: string;
-  variants?: ProductVariant[];
-  features?: string[];
   specifications?: Record<string, string>;
+  features?: string[];
 }
 
 export interface CartItem {

@@ -26,730 +26,1694 @@ export const products: Product[] = [
   {
     id: 'w-001',
     title: 'Floral Print Wrap Dress',
-    description: 'A beautiful wrap dress with delicate floral prints, perfect for spring outings and casual events. Made from a lightweight chiffon blend that drapes beautifully.',
-    price: 49.99,
-    originalPrice: 79.99,
-    discount: 38,
+    description: 'A beautiful wrap dress with delicate floral prints.',
     rating: 4.5,
     reviewCount: 234,
-    images: [
-      'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&q=80',
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80',
+    variants: [
+      {
+        color: "Rose",
+        sizes: [
+          {
+            size: "M",
+            stock: 15,
+            sku: "BS-WD-001-R-M",
+            price: 49.99,
+            originalPrice: 79.99,
+            discount: 38,
+            images: [
+              'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600',
+              'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Ivory",
+        sizes: [
+          {
+            size: "M",
+            stock: 15,
+            sku: "BS-WD-001-I-M",
+            price: 49.99,
+            originalPrice: 79.99,
+            discount: 38,
+            images: [
+              'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'women',
-    subcategory: 'dresses',
+    subCategory: 'dresses',
     brand: 'Bloom Studio',
-    colors: ['Rose', 'Ivory', 'Sage'],
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
-    inStock: true,
-    stockQuantity: 45,
     tags: ['new-arrivals', 'trending'],
     sku: 'BS-WD-001',
-    gtin: '0012345678901',
-    features: ['Lightweight chiffon blend', 'Wrap silhouette', 'Floral print', 'Side tie closure'],
-    specifications: { Material: 'Chiffon', Care: 'Hand wash', Country: 'India' },
+    gtin: '0012345678901'
   },
+
   {
     id: 'w-002',
     title: 'Classic White Crop Top',
-    description: 'Minimalist white crop top made from premium cotton blend. Versatile and comfortable for everyday styling.',
-    price: 24.99,
-    originalPrice: 34.99,
-    discount: 29,
+    description: 'Minimalist crop top made from premium cotton.',
     rating: 4.7,
     reviewCount: 512,
-    images: [
-      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+    variants: [
+      {
+        color: "White",
+        sizes: [
+          {
+            size: "S",
+            stock: 40,
+            sku: "UC-WT-002-W-S",
+            price: 24.99,
+            originalPrice: 34.99,
+            discount: 29,
+            images: [
+              'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "M",
+            stock: 30,
+            sku: "UC-WT-002-B-M",
+            price: 24.99,
+            originalPrice: 34.99,
+            discount: 29,
+            images: [
+              'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'women',
-    subcategory: 'tops',
+    subCategory: 'tops',
     brand: 'Urban Chic',
-    colors: ['White', 'Black', 'Blush'],
-    sizes: ['XS', 'S', 'M', 'L'],
-    inStock: true,
-    stockQuantity: 120,
-    tags: ['best-seller', 'trending'],
+    tags: ['best-seller'],
     sku: 'UC-WT-002',
-    gtin: '0012345678902',
+    gtin: '0012345678902'
   },
+
   {
     id: 'w-003',
     title: 'High Waist Skinny Jeans',
-    description: 'Stretch denim skinny jeans with a flattering high-waist fit. Classic indigo wash with 2% elastane for all-day comfort.',
-    price: 59.99,
-    originalPrice: 89.99,
-    discount: 33,
+    description: 'Stretch denim skinny jeans with high waist fit.',
     rating: 4.3,
     reviewCount: 189,
-    images: [
-      'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80',
-      'https://images.unsplash.com/photo-1475178626620-a4d074967452?w=600&q=80',
+    variants: [
+      {
+        color: "Indigo",
+        sizes: [
+          {
+            size: "M",
+            stock: 25,
+            sku: "DC-WJ-003-I-M",
+            price: 59.99,
+            originalPrice: 89.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "L",
+            stock: 20,
+            sku: "DC-WJ-003-B-L",
+            price: 59.99,
+            originalPrice: 89.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1475178626620-a4d074967452?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'women',
-    subcategory: 'skirts',
+    subCategory: 'jeans',
     brand: 'Denim Co.',
-    colors: ['Indigo', 'Black', 'Light Wash'],
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    inStock: true,
-    stockQuantity: 80,
     tags: ['best-seller'],
     sku: 'DC-WJ-003',
-    gtin: '0012345678903',
-    specifications: { Material: '98% Cotton, 2% Elastane', Fit: 'Skinny', Rise: 'High Waist' },
+    gtin: '0012345678903'
   },
+
   {
     id: 'w-004',
     title: 'Oversized Cozy Hoodie',
-    description: 'Ultra-soft oversized hoodie in pastel tones. Perfect loungewear for chilly days with a plush fleece interior.',
-    price: 39.99,
-    originalPrice: 54.99,
-    discount: 27,
+    description: 'Ultra-soft oversized hoodie for winter.',
     rating: 4.8,
     reviewCount: 678,
-    images: [
-      'https://picsum.photos/seed/hoodie-cozy/600/800',
-      'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80',
+    variants: [
+      {
+        color: "Blush",
+        sizes: [
+          {
+            size: "M",
+            stock: 50,
+            sku: "CC-WH-004-B-M",
+            price: 39.99,
+            originalPrice: 54.99,
+            discount: 27,
+            images: [
+              'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Lavender",
+        sizes: [
+          {
+            size: "L",
+            stock: 40,
+            sku: "CC-WH-004-L-L",
+            price: 39.99,
+            originalPrice: 54.99,
+            discount: 27,
+            images: [
+              'https://picsum.photos/seed/hoodie-cozy/600/800'
+            ]
+          }
+        ]
+      }
     ],
     category: 'women',
-    subcategory: 'tops',
+    subCategory: 'tops',
     brand: 'Comfy Club',
-    colors: ['Blush', 'Lavender', 'Cream'],
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true,
-    stockQuantity: 200,
-    tags: ['trending', 'new-arrivals'],
+    tags: ['trending'],
     sku: 'CC-WH-004',
-    gtin: '0012345678904',
+    gtin: '0012345678904'
   },
+
   {
     id: 'w-005',
     title: 'Pleated Midi Skirt',
-    description: 'Elegant satin-finish pleated midi skirt. Flows beautifully for any occasion — from office to evening.',
-    price: 44.99,
-    originalPrice: 64.99,
-    discount: 31,
+    description: 'Elegant satin pleated skirt.',
     rating: 4.4,
     reviewCount: 145,
-    images: [
-      'https://picsum.photos/seed/midi-skirt-w/600/800',
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80',
+    variants: [
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "M",
+            stock: 20,
+            sku: "BS-WS-005-B-M",
+            price: 44.99,
+            originalPrice: 64.99,
+            discount: 31,
+            images: [
+              'https://picsum.photos/seed/midi-skirt-w/600/800'
+            ]
+          }
+        ]
+      }
     ],
     category: 'women',
-    subcategory: 'skirts',
+    subCategory: 'skirts',
     brand: 'Bloom Studio',
-    colors: ['Champagne', 'Black', 'Dusty Rose'],
-    sizes: ['XS', 'S', 'M', 'L'],
-    inStock: true,
-    stockQuantity: 60,
     tags: ['new-arrivals'],
     sku: 'BS-WS-005',
-    gtin: '0012345678905',
+    gtin: '0012345678905'
   },
+
   {
     id: 'w-006',
     title: 'Lace Detail Party Dress',
-    description: 'Stunning party dress with intricate lace detailing. Turn heads at every event.',
-    price: 79.99,
-    originalPrice: 129.99,
-    discount: 38,
+    description: 'Elegant lace party dress.',
     rating: 4.6,
     reviewCount: 98,
-    images: [
-      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',
-      'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80',
+    variants: [
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "S",
+            stock: 10,
+            sku: "GE-WD-006-B-S",
+            price: 79.99,
+            originalPrice: 129.99,
+            discount: 38,
+            images: [
+              'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Wine",
+        sizes: [
+          {
+            size: "M",
+            stock: 10,
+            sku: "GE-WD-006-W-M",
+            price: 79.99,
+            originalPrice: 129.99,
+            discount: 38,
+            images: [
+              'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'women',
-    subcategory: 'dresses',
+    subCategory: 'dresses',
     brand: 'Glamour Edit',
-    colors: ['Black', 'Wine', 'Navy'],
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
-    inStock: true,
-    stockQuantity: 30,
-    tags: ['trending', 'sale'],
+    tags: ['sale'],
     sku: 'GE-WD-006',
-    gtin: '0012345678906',
+    gtin: '0012345678906'
   },
   // ─── WOMEN WATCHES ──────────────────────────────────────────────────────
   {
     id: 'ww-001',
     title: 'Rose Gold Minimalist Watch',
-    description: 'Elegant rose gold timepiece with a slim profile and genuine leather strap. Water-resistant up to 30m.',
-    price: 149.99,
-    originalPrice: 199.99,
-    discount: 25,
+    description: 'Elegant rose gold timepiece with a slim profile and genuine leather strap.',
     rating: 4.7,
     reviewCount: 312,
-    images: [
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80',
-      'https://images.unsplash.com/photo-1526045431048-f857369baa09?w=600&q=80',
+    variants: [
+      {
+        color: "Rose Gold",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 12,
+            sku: "LL-WW-001-RG",
+            price: 149.99,
+            originalPrice: 199.99,
+            discount: 25,
+            images: [
+              'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600',
+              'https://images.unsplash.com/photo-1526045431048-f857369baa09?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Silver",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 13,
+            sku: "LL-WW-001-SLV",
+            price: 149.99,
+            originalPrice: 199.99,
+            discount: 25,
+            images: [
+              'https://images.unsplash.com/photo-1511385348-a52b4a160dc2?w=600',
+              'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'women',
-    subcategory: 'watches-women',
+    subCategory: 'watches-women',
     brand: 'Luxe Lane',
-    colors: ['Rose Gold', 'Silver'],
-    sizes: ['One Size'],
-    inStock: true,
-    stockQuantity: 25,
     tags: ['new-arrivals', 'trending'],
     sku: 'LL-WW-001',
     gtin: '0012345679001',
-    specifications: { 'Case Material': 'Stainless Steel', 'Strap': 'Genuine Leather', 'Water Resistance': '30m', 'Movement': 'Japanese Quartz' },
+    specifications: {
+      'Case Material': 'Stainless Steel',
+      'Strap': 'Genuine Leather',
+      'Water Resistance': '30m',
+      'Movement': 'Japanese Quartz'
+    }
   },
   // ─── BEAUTY ──────────────────────────────────────────────────────────────
   {
     id: 'b-001',
     title: 'Hydrating Face Serum',
-    description: 'Lightweight vitamin C brightening serum with hyaluronic acid. Reduces dark spots and boosts radiance.',
-    price: 34.99,
-    originalPrice: 49.99,
-    discount: 30,
+    description: 'Lightweight vitamin C brightening serum with hyaluronic acid.',
     rating: 4.8,
     reviewCount: 892,
-    images: [
-      'https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=600&q=80',
-      'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80',
+    variants: [
+      {
+        color: "Default",
+        sizes: [
+          {
+            size: "30ml",
+            stock: 250,
+            sku: "GL-BS-001-30",
+            price: 34.99,
+            originalPrice: 49.99,
+            discount: 30,
+            images: [
+              'https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=600',
+              'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600'
+            ]
+          },
+          {
+            size: "50ml",
+            stock: 250,
+            sku: "GL-BS-001-50",
+            price: 49.99,
+            originalPrice: 69.99,
+            discount: 28,
+            images: [
+              'https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'beauty',
-    subcategory: 'skincare',
+    subCategory: 'skincare',
     brand: 'Glow Lab',
-    colors: [],
-    sizes: ['30ml', '50ml'],
-    inStock: true,
-    stockQuantity: 500,
     tags: ['best-seller', 'trending'],
     sku: 'GL-BS-001',
     gtin: '0012345680001',
-    specifications: { 'Volume': '30ml / 50ml', 'Skin Type': 'All', 'Key Ingredients': 'Vitamin C, Hyaluronic Acid', 'Cruelty-Free': 'Yes' },
+    specifications: {
+      'Skin Type': 'All',
+      'Key Ingredients': 'Vitamin C, Hyaluronic Acid',
+      'Cruelty-Free': 'Yes'
+    }
   },
+
   {
     id: 'b-002',
     title: 'Matte Liquid Lipstick Set',
-    description: '6-shade matte liquid lipstick set with long-lasting formula. Up to 12 hours wear.',
-    price: 29.99,
-    originalPrice: 44.99,
-    discount: 33,
+    description: '6-shade matte liquid lipstick set with long-lasting formula.',
     rating: 4.5,
     reviewCount: 634,
-    images: [
-      'https://images.unsplash.com/photo-1586495777744-4e6b8b1e7cfd?w=600&q=80',
-      'https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=600&q=80',
+    variants: [
+      {
+        color: "Red",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 50,
+            sku: "GS-BM-002-RED",
+            price: 29.99,
+            originalPrice: 44.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1586495777744-4e6b8b1e7cfd?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Nude",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 50,
+            sku: "GS-BM-002-NUD",
+            price: 29.99,
+            originalPrice: 44.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Berry",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 50,
+            sku: "GS-BM-002-BRY",
+            price: 29.99,
+            originalPrice: 44.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1600180758890-6c3b8aef2d03?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'beauty',
-    subcategory: 'makeup',
+    subCategory: 'makeup',
     brand: 'Glam Studio',
-    colors: ['Red', 'Nude', 'Berry', 'Coral', 'Plum', 'Pink'],
-    sizes: ['One Size'],
-    inStock: true,
-    stockQuantity: 300,
     tags: ['best-seller', 'sale'],
     sku: 'GS-BM-002',
-    gtin: '0012345680002',
+    gtin: '0012345680002'
   },
+
   {
     id: 'b-003',
     title: 'Nourishing Hair Mask',
-    description: 'Deep conditioning hair mask with argan oil and keratin. Repairs damage and adds intense shine in 20 minutes.',
-    price: 22.99,
-    originalPrice: 32.99,
-    discount: 30,
+    description: 'Deep conditioning hair mask with argan oil and keratin.',
     rating: 4.6,
     reviewCount: 445,
-    images: [
-      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80',
-      'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80',
+    variants: [
+      {
+        color: "Default",
+        sizes: [
+          {
+            size: "200ml",
+            stock: 100,
+            sku: "GL-BH-003-200",
+            price: 22.99,
+            originalPrice: 32.99,
+            discount: 30,
+            images: [
+              'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600'
+            ]
+          },
+          {
+            size: "400ml",
+            stock: 80,
+            sku: "GL-BH-003-400",
+            price: 34.99,
+            originalPrice: 49.99,
+            discount: 30,
+            images: [
+              'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'beauty',
-    subcategory: 'haircare',
+    subCategory: 'haircare',
     brand: 'Glow Lab',
-    colors: [],
-    sizes: ['200ml', '400ml'],
-    inStock: true,
-    stockQuantity: 180,
     tags: ['best-seller'],
     sku: 'GL-BH-003',
-    gtin: '0012345680003',
+    gtin: '0012345680003'
   },
   // ─── MEN ─────────────────────────────────────────────────────────────────
   {
     id: 'm-001',
     title: 'Classic Oxford Shirt',
-    description: 'Premium Oxford weave shirt with a tailored fit. Perfect for business or smart-casual occasions.',
-    price: 45.99,
-    originalPrice: 64.99,
-    discount: 29,
+    description: 'Premium Oxford weave shirt with a tailored fit.',
     rating: 4.4,
     reviewCount: 278,
-    images: [
-      'https://picsum.photos/seed/oxford-shirt-m/600/800',
-      'https://images.unsplash.com/photo-1604695573706-53170668f6a6?w=600&q=80',
+    variants: [
+      {
+        color: "White",
+        sizes: [
+          {
+            size: "M",
+            stock: 20,
+            sku: "UC-MS-001-W-M",
+            price: 45.99,
+            originalPrice: 64.99,
+            discount: 29,
+            images: [
+              'https://images.unsplash.com/photo-1604695573706-53170668f6a6?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Light Blue",
+        sizes: [
+          {
+            size: "L",
+            stock: 15,
+            sku: "UC-MS-001-LB-L",
+            price: 45.99,
+            originalPrice: 64.99,
+            discount: 29,
+            images: [
+              'https://picsum.photos/seed/oxford-shirt-m/600/800'
+            ]
+          }
+        ]
+      }
     ],
     category: 'men',
-    subcategory: 'shirts',
+    subCategory: 'shirts',
     brand: 'Urban Chic',
-    colors: ['White', 'Light Blue', 'Navy'],
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    inStock: true,
-    stockQuantity: 90,
     tags: ['new-arrivals'],
     sku: 'UC-MS-001',
     gtin: '0012345681001',
-    specifications: { Material: '100% Cotton', Fit: 'Regular', 'Collar': 'Button-Down' },
+    specifications: {
+      Material: '100% Cotton',
+      Fit: 'Regular',
+      Collar: 'Button-Down'
+    }
   },
+
   {
     id: 'm-002',
     title: 'Slim Fit Chinos',
-    description: 'Versatile slim-fit chino trousers in a stretch cotton blend. From boardroom to weekend.',
-    price: 52.99,
-    originalPrice: 74.99,
-    discount: 29,
+    description: 'Versatile slim-fit chino trousers.',
     rating: 4.3,
     reviewCount: 156,
-    images: [
-      'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80',
-      'https://picsum.photos/seed/oxford-shirt-m/600/800',
+    variants: [
+      {
+        color: "Khaki",
+        sizes: [
+          {
+            size: "32",
+            stock: 15,
+            sku: "DC-MC-002-K-32",
+            price: 52.99,
+            originalPrice: 74.99,
+            discount: 29,
+            images: [
+              'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "34",
+            stock: 10,
+            sku: "DC-MC-002-B-34",
+            price: 52.99,
+            originalPrice: 74.99,
+            discount: 29,
+            images: [
+              'https://picsum.photos/seed/oxford-shirt-m/600/800'
+            ]
+          }
+        ]
+      }
     ],
     category: 'men',
-    subcategory: 'jeans',
+    subCategory: 'jeans',
     brand: 'Denim Co.',
-    colors: ['Khaki', 'Navy', 'Olive', 'Black'],
-    sizes: ['28', '30', '32', '34', '36'],
-    inStock: true,
-    stockQuantity: 65,
     tags: ['best-seller'],
     sku: 'DC-MC-002',
-    gtin: '0012345681002',
+    gtin: '0012345681002'
   },
+
   {
     id: 'm-003',
     title: 'Graphic Print Tee',
-    description: 'Relaxed-fit graphic tee with vintage-inspired print. Pre-washed for a lived-in feel.',
-    price: 22.99,
-    originalPrice: 29.99,
-    discount: 23,
+    description: 'Relaxed-fit graphic tee with vintage print.',
     rating: 4.2,
     reviewCount: 341,
-    images: [
-      'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=600&q=80',
-      'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600&q=80',
+    variants: [
+      {
+        color: "White",
+        sizes: [
+          {
+            size: "M",
+            stock: 40,
+            sku: "SC-MT-003-W-M",
+            price: 22.99,
+            originalPrice: 29.99,
+            discount: 23,
+            images: [
+              'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "L",
+            stock: 35,
+            sku: "SC-MT-003-B-L",
+            price: 22.99,
+            originalPrice: 29.99,
+            discount: 23,
+            images: [
+              'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'men',
-    subcategory: 't-shirts',
+    subCategory: 't-shirts',
     brand: 'Street Co.',
-    colors: ['White', 'Black', 'Grey'],
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-    inStock: true,
-    stockQuantity: 150,
     tags: ['trending', 'sale'],
     sku: 'SC-MT-003',
-    gtin: '0012345681003',
+    gtin: '0012345681003'
   },
+
   {
     id: 'm-004',
     title: 'Leather Biker Jacket',
-    description: 'Premium faux leather biker jacket with asymmetric zip and quilted detailing.',
-    price: 129.99,
-    originalPrice: 189.99,
-    discount: 32,
+    description: 'Premium faux leather biker jacket.',
     rating: 4.6,
     reviewCount: 203,
-    images: [
-      'https://picsum.photos/seed/biker-jacket-m/600/800',
-      'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80',
+    variants: [
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "M",
+            stock: 12,
+            sku: "EG-MJ-004-B-M",
+            price: 129.99,
+            originalPrice: 189.99,
+            discount: 32,
+            images: [
+              'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Brown",
+        sizes: [
+          {
+            size: "L",
+            stock: 10,
+            sku: "EG-MJ-004-BR-L",
+            price: 129.99,
+            originalPrice: 189.99,
+            discount: 32,
+            images: [
+              'https://picsum.photos/seed/biker-jacket-m/600/800'
+            ]
+          }
+        ]
+      }
     ],
     category: 'men',
-    subcategory: 'jackets',
+    subCategory: 'jackets',
     brand: 'Edge Gear',
-    colors: ['Black', 'Brown'],
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true,
-    stockQuantity: 40,
-    tags: ['trending', 'new-arrivals'],
+    tags: ['trending'],
     sku: 'EG-MJ-004',
-    gtin: '0012345681004',
+    gtin: '0012345681004'
   },
   // ─── MEN WATCHES ─────────────────────────────────────────────────────────
   {
     id: 'mw-001',
     title: 'Chronograph Sports Watch',
-    description: 'Precision chronograph watch with stainless steel case and sapphire crystal glass. Water-resistant to 100m.',
-    price: 249.99,
-    originalPrice: 349.99,
-    discount: 29,
+    description: 'Precision chronograph watch with stainless steel case and sapphire crystal glass.',
     rating: 4.8,
     reviewCount: 487,
-    images: [
-      'https://picsum.photos/seed/chrono-watch-m/600/800',
-      'https://images.unsplash.com/photo-1627384113710-424c9181ebbb?w=600&q=80',
+    variants: [
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 7,
+            sku: "TL-MW-001-BLK",
+            price: 249.99,
+            originalPrice: 349.99,
+            discount: 29,
+            images: [
+              'https://images.unsplash.com/photo-1627384113710-424c9181ebbb?w=600',
+              'https://picsum.photos/seed/chrono-watch-m/600/800'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Silver",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 7,
+            sku: "TL-MW-001-SLV",
+            price: 249.99,
+            originalPrice: 349.99,
+            discount: 29,
+            images: [
+              'https://images.unsplash.com/photo-1511385348-a52b4a160dc2?w=600',
+              'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Gold",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 6,
+            sku: "TL-MW-001-GLD",
+            price: 249.99,
+            originalPrice: 349.99,
+            discount: 29,
+            images: [
+              'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600',
+              'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'men',
-    subcategory: 'watches-men',
+    subCategory: 'watches',
     brand: 'Tempo Luxe',
-    colors: ['Black', 'Silver', 'Gold'],
-    sizes: ['One Size'],
-    inStock: true,
-    stockQuantity: 20,
     tags: ['new-arrivals', 'best-seller'],
     sku: 'TL-MW-001',
     gtin: '0012345682001',
-    specifications: { 'Case Material': 'Stainless Steel', 'Crystal': 'Sapphire', 'Water Resistance': '100m', 'Movement': 'Swiss Quartz', 'Case Diameter': '44mm' },
+    specifications: {
+      'Case Material': 'Stainless Steel',
+      'Crystal': 'Sapphire',
+      'Water Resistance': '100m',
+      'Movement': 'Swiss Quartz',
+      'Case Diameter': '44mm'
+    }
   },
   // ─── KIDS ─────────────────────────────────────────────────────────────────
   {
     id: 'k-001',
     title: 'Dinosaur Printed T-Shirt',
-    description: 'Fun and playful dinosaur print tee for little adventurers. Made from 100% organic cotton.',
-    price: 16.99,
-    originalPrice: 24.99,
-    discount: 32,
+    description: 'Fun and playful dinosaur print tee for little adventurers.',
     rating: 4.7,
     reviewCount: 156,
-    images: [
-      'https://images.unsplash.com/photo-1519278409-1f56fdda7fe5?w=600&q=80',
-      'https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=600&q=80',
+    variants: [
+      {
+        color: "Blue",
+        sizes: [
+          {
+            size: "4Y",
+            stock: 40,
+            sku: "TT-KT-001-BLU-4Y",
+            price: 16.99,
+            originalPrice: 24.99,
+            discount: 32,
+            images: [
+              'https://images.unsplash.com/photo-1519278409-1f56fdda7fe5?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Green",
+        sizes: [
+          {
+            size: "5Y",
+            stock: 35,
+            sku: "TT-KT-001-GRN-5Y",
+            price: 16.99,
+            originalPrice: 24.99,
+            discount: 32,
+            images: [
+              'https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Yellow",
+        sizes: [
+          {
+            size: "6Y",
+            stock: 30,
+            sku: "TT-KT-001-YLW-6Y",
+            price: 16.99,
+            originalPrice: 24.99,
+            discount: 32,
+            images: [
+              'https://images.unsplash.com/photo-1519278409-1f56fdda7fe5?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'kids',
-    subcategory: 'boys',
+    subCategory: 'boys',
     brand: 'Tiny Threads',
-    colors: ['Blue', 'Green', 'Yellow'],
-    sizes: ['2Y', '3Y', '4Y', '5Y', '6Y', '8Y'],
-    inStock: true,
-    stockQuantity: 200,
     tags: ['new-arrivals'],
     sku: 'TT-KT-001',
-    gtin: '0012345683001',
+    gtin: '0012345683001'
   },
+
   {
     id: 'k-002',
     title: 'Girls Tutu Party Dress',
-    description: 'Adorable layered tutu dress with sparkling bodice. Perfect for birthdays and special occasions.',
-    price: 28.99,
-    originalPrice: 39.99,
-    discount: 28,
+    description: 'Adorable layered tutu dress for special occasions.',
     rating: 4.8,
     reviewCount: 234,
-    images: [
-      'https://images.unsplash.com/photo-1478369402113-1fd53f17e8b4?w=600&q=80',
-      'https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&q=80',
+    variants: [
+      {
+        color: "Pink",
+        sizes: [
+          {
+            size: "4Y",
+            stock: 20,
+            sku: "TT-KD-002-PNK-4Y",
+            price: 28.99,
+            originalPrice: 39.99,
+            discount: 28,
+            images: [
+              'https://images.unsplash.com/photo-1478369402113-1fd53f17e8b4?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Purple",
+        sizes: [
+          {
+            size: "5Y",
+            stock: 18,
+            sku: "TT-KD-002-PRP-5Y",
+            price: 28.99,
+            originalPrice: 39.99,
+            discount: 28,
+            images: [
+              'https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "White",
+        sizes: [
+          {
+            size: "6Y",
+            stock: 15,
+            sku: "TT-KD-002-WHT-6Y",
+            price: 28.99,
+            originalPrice: 39.99,
+            discount: 28,
+            images: [
+              'https://images.unsplash.com/photo-1478369402113-1fd53f17e8b4?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'kids',
-    subcategory: 'girls',
+    subCategory: 'girls',
     brand: 'Tiny Threads',
-    colors: ['Pink', 'Purple', 'White'],
-    sizes: ['2Y', '3Y', '4Y', '5Y', '6Y', '8Y'],
-    inStock: true,
-    stockQuantity: 80,
     tags: ['trending'],
     sku: 'TT-KD-002',
-    gtin: '0012345683002',
+    gtin: '0012345683002'
   },
   // ─── ELECTRONICS – MOBILES ──────────────────────────────────────────────
+
   {
     id: 'e-mob-001',
     title: 'ProMax X15 Smartphone',
-    description: '6.7" AMOLED display, 200MP camera, 5000mAh battery, 12GB RAM, 256GB storage. Flagship performance.',
-    price: 899.99,
-    originalPrice: 1099.99,
-    discount: 18,
+    description: '6.7" AMOLED display, 200MP camera, flagship performance.',
     rating: 4.7,
     reviewCount: 1243,
-    images: [
-      'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80',
-      'https://images.unsplash.com/photo-1592950630581-03cb41342cc5?w=600&q=80',
+    variants: [
+      {
+        color: "Midnight Black",
+        sizes: [
+          {
+            size: "128GB",
+            stock: 10,
+            sku: "TV-EM-001-BLK-128",
+            price: 899.99,
+            originalPrice: 1099.99,
+            discount: 18,
+            images: [
+              'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600'
+            ]
+          },
+          {
+            size: "256GB",
+            stock: 8,
+            sku: "TV-EM-001-BLK-256",
+            price: 949.99,
+            originalPrice: 1149.99,
+            discount: 17,
+            images: [
+              'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Glacier White",
+        sizes: [
+          {
+            size: "256GB",
+            stock: 7,
+            sku: "TV-EM-001-WHT-256",
+            price: 949.99,
+            originalPrice: 1149.99,
+            discount: 17,
+            images: [
+              'https://images.unsplash.com/photo-1592950630581-03cb41342cc5?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Cosmic Purple",
+        sizes: [
+          {
+            size: "512GB",
+            stock: 5,
+            sku: "TV-EM-001-PRP-512",
+            price: 999.99,
+            originalPrice: 1199.99,
+            discount: 17,
+            images: [
+              'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'electronics',
-    subcategory: 'mobiles',
+    subCategory: 'mobiles',
     brand: 'TechVision',
-    colors: ['Midnight Black', 'Glacier White', 'Cosmic Purple'],
-    sizes: ['128GB', '256GB', '512GB'],
-    inStock: true,
-    stockQuantity: 50,
     tags: ['new-arrivals', 'trending'],
     sku: 'TV-EM-001',
     gtin: '0012345684001',
-    specifications: { 'Display': '6.7" AMOLED 120Hz', 'Processor': 'Snapdragon 8 Gen 3', 'RAM': '12GB', 'Storage': '256GB', 'Camera': '200MP + 12MP + 10MP', 'Battery': '5000mAh', 'OS': 'Android 15', '5G': 'Yes' },
-    features: ['5G Ready', '120Hz Refresh Rate', '200MP Camera', '65W Fast Charging', 'IP68 Water Resistant'],
+    specifications: {
+      Display: '6.7" AMOLED 120Hz',
+      Processor: 'Snapdragon 8 Gen 3',
+      RAM: '12GB',
+      Camera: '200MP + 12MP + 10MP',
+      Battery: '5000mAh',
+      OS: 'Android 15',
+      '5G': 'Yes'
+    },
+    features: [
+      '5G Ready',
+      '120Hz Refresh Rate',
+      '200MP Camera',
+      '65W Fast Charging',
+      'IP68 Water Resistant'
+    ]
   },
+
   {
     id: 'e-mob-002',
     title: 'Budget Max 5G Phone',
-    description: '6.5" IPS LCD, 64MP camera, 5000mAh battery. Best value for money smartphone.',
-    price: 249.99,
-    originalPrice: 329.99,
-    discount: 24,
+    description: 'Affordable smartphone with 64MP camera and long battery life.',
     rating: 4.3,
     reviewCount: 876,
-    images: [
-      'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80',
-      'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600&q=80',
+    variants: [
+      {
+        color: "Blue",
+        sizes: [
+          {
+            size: "64GB",
+            stock: 30,
+            sku: "VT-EM-002-BLU-64",
+            price: 249.99,
+            originalPrice: 329.99,
+            discount: 24,
+            images: [
+              'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "128GB",
+            stock: 40,
+            sku: "VT-EM-002-BLK-128",
+            price: 269.99,
+            originalPrice: 349.99,
+            discount: 23,
+            images: [
+              'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Green",
+        sizes: [
+          {
+            size: "128GB",
+            stock: 25,
+            sku: "VT-EM-002-GRN-128",
+            price: 269.99,
+            originalPrice: 349.99,
+            discount: 23,
+            images: [
+              'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'electronics',
-    subcategory: 'mobiles',
+    subCategory: 'mobiles',
     brand: 'ValueTech',
-    colors: ['Blue', 'Black', 'Green'],
-    sizes: ['64GB', '128GB'],
-    inStock: true,
-    stockQuantity: 120,
     tags: ['best-seller', 'sale'],
     sku: 'VT-EM-002',
     gtin: '0012345684002',
-    specifications: { 'Display': '6.5" IPS LCD 90Hz', 'Processor': 'MediaTek Dimensity 700', 'RAM': '6GB', 'Storage': '128GB', 'Camera': '64MP + 8MP + 2MP', 'Battery': '5000mAh', 'OS': 'Android 14', '5G': 'Yes' },
+    specifications: {
+      Display: '6.5" IPS LCD 90Hz',
+      Processor: 'MediaTek Dimensity 700',
+      RAM: '6GB',
+      Camera: '64MP + 8MP + 2MP',
+      Battery: '5000mAh',
+      OS: 'Android 14',
+      '5G': 'Yes'
+    }
   },
+
   // ─── ELECTRONICS – LAPTOPS ──────────────────────────────────────────────
   {
     id: 'e-lap-001',
     title: 'UltraBook Pro 14"',
-    description: 'Thin and light professional laptop with 14" OLED display, Intel Core i7, 16GB RAM, 512GB SSD.',
-    price: 1299.99,
-    originalPrice: 1599.99,
-    discount: 19,
+    description: 'Thin and light professional laptop with 14" OLED display.',
     rating: 4.8,
     reviewCount: 654,
-    images: [
-      'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80',
-      'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&q=80',
+    variants: [
+      {
+        color: "Silver",
+        sizes: [
+          {
+            size: "512GB SSD",
+            stock: 10,
+            sku: "TV-EL-001-SLV-512",
+            price: 1299.99,
+            originalPrice: 1599.99,
+            discount: 19,
+            images: [
+              'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600'
+            ]
+          },
+          {
+            size: "1TB SSD",
+            stock: 8,
+            sku: "TV-EL-001-SLV-1TB",
+            price: 1399.99,
+            originalPrice: 1699.99,
+            discount: 18,
+            images: [
+              'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Space Grey",
+        sizes: [
+          {
+            size: "512GB SSD",
+            stock: 6,
+            sku: "TV-EL-001-GRY-512",
+            price: 1299.99,
+            originalPrice: 1599.99,
+            discount: 19,
+            images: [
+              'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'electronics',
-    subcategory: 'laptops',
+    subCategory: 'laptops',
     brand: 'TechVision',
-    colors: ['Silver', 'Space Grey'],
-    sizes: ['512GB SSD', '1TB SSD'],
-    inStock: true,
-    stockQuantity: 30,
     tags: ['new-arrivals', 'trending'],
     sku: 'TV-EL-001',
     gtin: '0012345685001',
-    specifications: { 'Display': '14" OLED 2.8K', 'Processor': 'Intel Core i7-13th Gen', 'RAM': '16GB DDR5', 'Storage': '512GB NVMe SSD', 'Battery': '72Wh (up to 12h)', 'Weight': '1.2kg', 'OS': 'Windows 11' },
-    features: ['OLED Display', 'Thunderbolt 4', 'Backlit Keyboard', 'Fingerprint Reader', 'Wi-Fi 6E'],
+    specifications: {
+      Display: '14" OLED 2.8K',
+      Processor: 'Intel Core i7-13th Gen',
+      RAM: '16GB DDR5',
+      Battery: '72Wh (up to 12h)',
+      Weight: '1.2kg',
+      OS: 'Windows 11'
+    },
+    features: [
+      'OLED Display',
+      'Thunderbolt 4',
+      'Backlit Keyboard',
+      'Fingerprint Reader',
+      'Wi-Fi 6E'
+    ]
   },
+
   {
     id: 'e-lap-002',
     title: 'Creator Studio 15"',
-    description: '15.6" 4K display laptop with RTX 4060, AMD Ryzen 9, 32GB RAM. Built for creators and gamers.',
-    price: 1599.99,
-    originalPrice: 1999.99,
-    discount: 20,
+    description: 'High-performance laptop for creators and gamers.',
     rating: 4.7,
     reviewCount: 423,
-    images: [
-      'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=80',
-      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80',
+    variants: [
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "512GB SSD",
+            stock: 8,
+            sku: "TV-EL-002-BLK-512",
+            price: 1599.99,
+            originalPrice: 1999.99,
+            discount: 20,
+            images: [
+              'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600'
+            ]
+          },
+          {
+            size: "1TB SSD",
+            stock: 12,
+            sku: "TV-EL-002-BLK-1TB",
+            price: 1699.99,
+            originalPrice: 2099.99,
+            discount: 19,
+            images: [
+              'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'electronics',
-    subcategory: 'laptops',
+    subCategory: 'laptops',
     brand: 'TechVision',
-    colors: ['Black'],
-    sizes: ['512GB SSD', '1TB SSD'],
-    inStock: true,
-    stockQuantity: 20,
     tags: ['trending'],
     sku: 'TV-EL-002',
     gtin: '0012345685002',
-    specifications: { 'Display': '15.6" 4K IPS 144Hz', 'GPU': 'NVIDIA RTX 4060 8GB', 'Processor': 'AMD Ryzen 9 7945HX', 'RAM': '32GB DDR5', 'Storage': '1TB NVMe SSD', 'OS': 'Windows 11' },
+    specifications: {
+      Display: '15.6" 4K IPS 144Hz',
+      GPU: 'NVIDIA RTX 4060 8GB',
+      Processor: 'AMD Ryzen 9 7945HX',
+      RAM: '32GB DDR5',
+      OS: 'Windows 11'
+    }
   },
   // ─── ELECTRONICS – TVs ──────────────────────────────────────────────────
   {
     id: 'e-tv-001',
     title: '55" QLED 4K Smart TV',
-    description: '55-inch QLED 4K Smart TV with Quantum Dot technology, HDR10+, Dolby Vision, built-in Alexa.',
-    price: 699.99,
-    originalPrice: 999.99,
-    discount: 30,
+    description: 'QLED 4K Smart TV with Quantum Dot technology, HDR10+, Dolby Vision.',
     rating: 4.6,
     reviewCount: 789,
-    images: [
-      'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600&q=80',
-      'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600&q=80',
+    variants: [
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: '43"',
+            stock: 10,
+            sku: 'VM-ET-001-43',
+            price: 499.99,
+            originalPrice: 699.99,
+            discount: 28,
+            images: [
+              'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600'
+            ]
+          },
+          {
+            size: '55"',
+            stock: 12,
+            sku: 'VM-ET-001-55',
+            price: 699.99,
+            originalPrice: 999.99,
+            discount: 30,
+            images: [
+              'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600'
+            ]
+          },
+          {
+            size: '65"',
+            stock: 8,
+            sku: 'VM-ET-001-65',
+            price: 899.99,
+            originalPrice: 1199.99,
+            discount: 25,
+            images: [
+              'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600'
+            ]
+          },
+          {
+            size: '75"',
+            stock: 5,
+            sku: 'VM-ET-001-75',
+            price: 1199.99,
+            originalPrice: 1499.99,
+            discount: 20,
+            images: [
+              'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'electronics',
-    subcategory: 'tvs',
+    subCategory: 'tvs',
     brand: 'VistaMax',
-    colors: ['Black'],
-    sizes: ['43"', '55"', '65"', '75"'],
-    inStock: true,
-    stockQuantity: 35,
     tags: ['best-seller', 'sale'],
     sku: 'VM-ET-001',
     gtin: '0012345686001',
-    specifications: { 'Screen Size': '55"', 'Resolution': '4K UHD (3840x2160)', 'Display': 'QLED', 'HDR': 'HDR10+, Dolby Vision', 'Refresh Rate': '120Hz', 'Smart OS': 'Tizen 7.0', 'Ports': '4x HDMI, 3x USB' },
-    features: ['Quantum Dot Display', 'Dolby Vision & Atmos', 'Built-in Alexa & Google Assistant', 'ALLM Gaming Mode', 'Ambient Mode'],
+    specifications: {
+      Resolution: '4K UHD (3840x2160)',
+      Display: 'QLED',
+      HDR: 'HDR10+, Dolby Vision',
+      'Refresh Rate': '120Hz',
+      'Smart OS': 'Tizen 7.0',
+      Ports: '4x HDMI, 3x USB'
+    },
+    features: [
+      'Quantum Dot Display',
+      'Dolby Vision & Atmos',
+      'Built-in Alexa & Google Assistant',
+      'ALLM Gaming Mode',
+      'Ambient Mode'
+    ]
   },
   // ─── GROCERY ─────────────────────────────────────────────────────────────
   {
     id: 'g-001',
-    title: 'Organic Mixed Nuts Pack (1kg)',
-    description: 'Premium blend of cashews, almonds, walnuts, and pistachios. Raw, unsalted, 100% organic.',
-    price: 18.99,
-    originalPrice: 24.99,
-    discount: 24,
+    title: 'Organic Mixed Nuts Pack',
+    description: 'Premium blend of cashews, almonds, walnuts, and pistachios.',
     rating: 4.6,
     reviewCount: 1567,
-    images: [
-      'https://images.unsplash.com/photo-1543168256-418811576931?w=600&q=80',
-      'https://images.unsplash.com/photo-1578910208873-21fcf1ed0cca?w=600&q=80',
+    variants: [
+      {
+        color: "Default",
+        sizes: [
+          {
+            size: "500g",
+            stock: 200,
+            sku: "NF-GS-001-500",
+            price: 10.99,
+            originalPrice: 14.99,
+            discount: 26,
+            images: [
+              'https://images.unsplash.com/photo-1543168256-418811576931?w=600'
+            ]
+          },
+          {
+            size: "1kg",
+            stock: 180,
+            sku: "NF-GS-001-1KG",
+            price: 18.99,
+            originalPrice: 24.99,
+            discount: 24,
+            images: [
+              'https://images.unsplash.com/photo-1578910208873-21fcf1ed0cca?w=600'
+            ]
+          },
+          {
+            size: "2kg",
+            stock: 120,
+            sku: "NF-GS-001-2KG",
+            price: 34.99,
+            originalPrice: 44.99,
+            discount: 22,
+            images: [
+              'https://images.unsplash.com/photo-1543168256-418811576931?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'grocery',
-    subcategory: 'snacks',
+    subCategory: 'snacks',
     brand: 'NatureFarm',
-    colors: [],
-    sizes: ['500g', '1kg', '2kg'],
-    inStock: true,
-    stockQuantity: 500,
     tags: ['best-seller'],
     sku: 'NF-GS-001',
     gtin: '0012345687001',
-    specifications: { 'Contents': 'Cashews, Almonds, Walnuts, Pistachios', 'Organic': 'Yes', 'Packaging': 'Resealable Zip Bag', 'Shelf Life': '12 months' },
+    specifications: {
+      Contents: 'Cashews, Almonds, Walnuts, Pistachios',
+      Organic: 'Yes',
+      Packaging: 'Resealable Zip Bag',
+      'Shelf Life': '12 months'
+    }
   },
+
   {
     id: 'g-002',
-    title: 'Farm Fresh Milk (2L)',
-    description: 'Full cream farm fresh milk from free-range cows. Pasteurized and homogenized.',
-    price: 3.99,
-    originalPrice: 4.99,
-    discount: 20,
+    title: 'Farm Fresh Milk',
+    description: 'Full cream farm fresh milk from free-range cows.',
     rating: 4.4,
     reviewCount: 2341,
-    images: [
-      'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&q=80',
-      'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&q=80',
+    variants: [
+      {
+        color: "Default",
+        sizes: [
+          {
+            size: "1L",
+            stock: 500,
+            sku: "PV-GD-002-1L",
+            price: 2.49,
+            originalPrice: 3.49,
+            discount: 28,
+            images: [
+              'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600'
+            ]
+          },
+          {
+            size: "2L",
+            stock: 500,
+            sku: "PV-GD-002-2L",
+            price: 3.99,
+            originalPrice: 4.99,
+            discount: 20,
+            images: [
+              'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'grocery',
-    subcategory: 'dairy',
+    subCategory: 'dairy',
     brand: 'Pure Valley',
-    colors: [],
-    sizes: ['1L', '2L'],
-    inStock: true,
-    stockQuantity: 1000,
     tags: ['best-seller'],
     sku: 'PV-GD-002',
-    gtin: '0012345687002',
+    gtin: '0012345687002'
   },
   // ─── MEDICINE ────────────────────────────────────────────────────────────
   {
     id: 'med-001',
-    title: 'Vitamin C + Zinc Effervescent (30 Tabs)',
-    description: '1000mg Vitamin C with Zinc effervescent tablets. Boosts immunity, reduces fatigue. Orange flavour.',
-    price: 12.99,
-    originalPrice: 17.99,
-    discount: 28,
+    title: 'Vitamin C + Zinc Effervescent',
+    description: '1000mg Vitamin C with Zinc effervescent tablets. Boosts immunity.',
     rating: 4.7,
     reviewCount: 3456,
-    images: [
-      'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&q=80',
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80',
+    variants: [
+      {
+        color: "Default",
+        sizes: [
+          {
+            size: "30 Tablets",
+            stock: 400,
+            sku: "HP-MV-001-30",
+            price: 12.99,
+            originalPrice: 17.99,
+            discount: 28,
+            images: [
+              'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600'
+            ]
+          },
+          {
+            size: "60 Tablets",
+            stock: 400,
+            sku: "HP-MV-001-60",
+            price: 19.99,
+            originalPrice: 27.99,
+            discount: 28,
+            images: [
+              'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'medicine',
-    subcategory: 'vitamins',
+    subCategory: 'vitamins',
     brand: 'HealthPure',
-    colors: [],
-    sizes: ['30 Tablets', '60 Tablets'],
-    inStock: true,
-    stockQuantity: 800,
     tags: ['best-seller'],
     sku: 'HP-MV-001',
     gtin: '0012345688001',
-    specifications: { 'Vitamin C': '1000mg', 'Zinc': '10mg', 'Flavour': 'Orange', 'Suitable For': 'Adults 18+', 'Form': 'Effervescent' },
+    specifications: {
+      'Vitamin C': '1000mg',
+      Zinc: '10mg',
+      Flavour: 'Orange',
+      'Suitable For': 'Adults 18+',
+      Form: 'Effervescent'
+    }
   },
   // ─── FURNITURE ───────────────────────────────────────────────────────────
   {
     id: 'f-001',
     title: '3-Seater Velvet Sofa',
-    description: 'Luxurious 3-seater sofa upholstered in premium velvet with solid wood legs. Foam-filled cushions for supreme comfort.',
-    price: 799.99,
-    originalPrice: 1199.99,
-    discount: 33,
+    description: 'Luxurious velvet sofa with solid wood legs and premium comfort.',
     rating: 4.5,
     reviewCount: 234,
-    images: [
-      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80',
-      'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&q=80',
+    variants: [
+      {
+        color: "Emerald Green",
+        sizes: [
+          {
+            size: "3-Seater",
+            stock: 4,
+            sku: "HE-FS-001-GRN-3S",
+            price: 799.99,
+            originalPrice: 1199.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Navy Blue",
+        sizes: [
+          {
+            size: "3-Seater",
+            stock: 4,
+            sku: "HE-FS-001-NVY-3S",
+            price: 799.99,
+            originalPrice: 1199.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Dusty Pink",
+        sizes: [
+          {
+            size: "3-Seater",
+            stock: 3,
+            sku: "HE-FS-001-PNK-3S",
+            price: 799.99,
+            originalPrice: 1199.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Charcoal",
+        sizes: [
+          {
+            size: "3-Seater",
+            stock: 4,
+            sku: "HE-FS-001-CHR-3S",
+            price: 799.99,
+            originalPrice: 1199.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'furniture',
-    subcategory: 'sofas',
+    subCategory: 'sofas',
     brand: 'HomeElegance',
-    colors: ['Emerald Green', 'Navy Blue', 'Dusty Pink', 'Charcoal'],
-    sizes: ['3-Seater'],
-    inStock: true,
-    stockQuantity: 15,
     tags: ['trending', 'sale'],
     sku: 'HE-FS-001',
     gtin: '0012345689001',
-    specifications: { 'Upholstery': 'Premium Velvet', 'Legs': 'Solid Beech Wood', 'Seating Capacity': '3', 'Dimensions': '220cm x 90cm x 85cm', 'Assembly': 'Required' },
-    features: ['Stain-Resistant Fabric', 'High-Density Foam', 'Non-Slip Leg Pads', 'Easy Assembly'],
+    specifications: {
+      Upholstery: 'Premium Velvet',
+      Legs: 'Solid Beech Wood',
+      'Seating Capacity': '3',
+      Dimensions: '220cm x 90cm x 85cm',
+      Assembly: 'Required'
+    },
+    features: [
+      'Stain-Resistant Fabric',
+      'High-Density Foam',
+      'Non-Slip Leg Pads',
+      'Easy Assembly'
+    ]
   },
+
   {
     id: 'f-002',
     title: 'Scandinavian Dining Table',
-    description: 'Minimalist oak wood dining table with hairpin metal legs. Seats 6 comfortably.',
-    price: 499.99,
-    originalPrice: 699.99,
-    discount: 29,
+    description: 'Minimalist oak dining table with metal legs.',
     rating: 4.4,
     reviewCount: 167,
-    images: [
-      'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600&q=80',
-      'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600&q=80',
+    variants: [
+      {
+        color: "Natural Oak",
+        sizes: [
+          {
+            size: "4-Seater",
+            stock: 5,
+            sku: "HE-FT-002-OAK-4S",
+            price: 449.99,
+            originalPrice: 649.99,
+            discount: 31,
+            images: [
+              'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600'
+            ]
+          },
+          {
+            size: "6-Seater",
+            stock: 4,
+            sku: "HE-FT-002-OAK-6S",
+            price: 499.99,
+            originalPrice: 699.99,
+            discount: 29,
+            images: [
+              'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Walnut",
+        sizes: [
+          {
+            size: "6-Seater",
+            stock: 3,
+            sku: "HE-FT-002-WNT-6S",
+            price: 529.99,
+            originalPrice: 749.99,
+            discount: 29,
+            images: [
+              'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'furniture',
-    subcategory: 'tables',
+    subCategory: 'tables',
     brand: 'HomeElegance',
-    colors: ['Natural Oak', 'Walnut'],
-    sizes: ['4-Seater', '6-Seater'],
-    inStock: true,
-    stockQuantity: 12,
     tags: ['new-arrivals'],
     sku: 'HE-FT-002',
     gtin: '0012345689002',
-    specifications: { 'Material': 'Solid Oak', 'Legs': 'Hairpin Metal', 'Capacity': '6 persons', 'Dimensions': '180cm x 90cm x 76cm' },
+    specifications: {
+      Material: 'Solid Oak',
+      Legs: 'Hairpin Metal',
+      Capacity: '6 persons',
+      Dimensions: '180cm x 90cm x 76cm'
+    }
   },
   // ─── ACCESSORIES ──────────────────────────────────────────────────────────
-  {
+    {
     id: 'a-001',
     title: 'Leather Crossbody Bag',
-    description: 'Compact yet spacious crossbody bag in premium faux leather with gold hardware.',
-    price: 34.99,
-    originalPrice: 49.99,
-    discount: 30,
+    description: 'Compact yet spacious crossbody bag in premium faux leather.',
     rating: 4.2,
     reviewCount: 310,
-    images: [
-      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80',
-      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80',
+    variants: [
+      {
+        color: "Tan",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 25,
+            sku: "LL-WB-001-TAN",
+            price: 34.99,
+            originalPrice: 49.99,
+            discount: 30,
+            images: [
+              'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Black",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 25,
+            sku: "LL-WB-001-BLK",
+            price: 34.99,
+            originalPrice: 49.99,
+            discount: 30,
+            images: [
+              'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Blush",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 25,
+            sku: "LL-WB-001-BLS",
+            price: 34.99,
+            originalPrice: 49.99,
+            discount: 30,
+            images: [
+              'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'women',
-    subcategory: 'bags',
+    subCategory: 'bags',
     brand: 'Luxe Lane',
-    colors: ['Tan', 'Black', 'Blush'],
-    sizes: ['One Size'],
-    inStock: true,
-    stockQuantity: 75,
     tags: ['best-seller'],
     sku: 'LL-WB-001',
-    gtin: '0012345678907',
+    gtin: '0012345678907'
   },
+
   {
     id: 'a-002',
     title: 'Statement Gold Earrings',
-    description: 'Bold geometric gold-plated earrings. The perfect finishing touch for any outfit.',
-    price: 19.99,
-    originalPrice: 29.99,
-    discount: 33,
+    description: 'Bold geometric gold-plated earrings.',
     rating: 4.3,
     reviewCount: 445,
-    images: [
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80',
-      'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80',
+    variants: [
+      {
+        color: "Gold",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 80,
+            sku: "LL-WJ-002-GLD",
+            price: 19.99,
+            originalPrice: 29.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Silver",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 70,
+            sku: "LL-WJ-002-SLV",
+            price: 19.99,
+            originalPrice: 29.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600'
+            ]
+          }
+        ]
+      },
+      {
+        color: "Rose Gold",
+        sizes: [
+          {
+            size: "One Size",
+            stock: 50,
+            sku: "LL-WJ-002-RGD",
+            price: 19.99,
+            originalPrice: 29.99,
+            discount: 33,
+            images: [
+              'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600'
+            ]
+          }
+        ]
+      }
     ],
     category: 'women',
-    subcategory: 'jewelry',
+    subCategory: 'jewelry',
     brand: 'Luxe Lane',
-    colors: ['Gold', 'Silver', 'Rose Gold'],
-    sizes: ['One Size'],
-    inStock: true,
-    stockQuantity: 200,
     tags: ['sale', 'best-seller'],
     sku: 'LL-WJ-002',
-    gtin: '0012345678908',
+    gtin: '0012345678908'
   },
 ];
 
@@ -761,7 +1725,7 @@ export const getProductsByCategory = (slug: string): Product[] => {
   if (slug === 'all') return products;
   if (slug === 'sale') return products.filter(p => p.tags.includes('sale'));
   if (slug === 'new-arrivals') return products.filter(p => p.tags.includes('new-arrivals'));
-  return products.filter(p => p.category === slug || p.subcategory === slug);
+  return products.filter(p => p.category === slug || p.subCategory === slug);
 };
 
 export const getProductById = (id: string): Product | undefined =>

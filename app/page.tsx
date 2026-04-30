@@ -22,7 +22,7 @@ export default async function HomePage() {
     const furniture = products.filter(p => p.category === 'furniture');
     const menProducts = products.filter(p => p.category === 'men');
     const kidsProducts = products.filter(p => p.category === 'kids');
-    const watches = products.filter(p => p.subcategory === 'watches-men' || p.subcategory === 'watches-women');
+    const watches = products.filter(p => p.subCategory === 'watches-men' || p.subCategory === 'watches-women');
 
     return (
         <div className="pb-8">

@@ -26,7 +26,7 @@ export default function ProductDetailClient({ product, similar }: Props) {
     const isWished = useAppSelector(s => s.wishlist.items.some(i => i.id === product.id));
 
     const [selectedSize, setSelectedSize] = useState('');
-    const [selectedColor, setSelectedColor] = useState(product.colors[0] ?? '');
+    const [selectedColor, setSelectedColor] = useState(product?.variants[0]?.color ?? '');
     const [activeIndex, setActiveIndex] = useState(0);
     const [zoom, setZoom] = useState(false);
     const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
@@ -40,27 +40,36 @@ export default function ProductDetailClient({ product, similar }: Props) {
         setZoomPos({ x, y });
     };
 
-    const handleAdd = () => {
-        if (product.sizes.length > 0 && product.sizes[0] !== 'One Size' && !selectedSize) {
-            toast.error('Please select a size');
-            return;
-        }
-        dispatch(addToCart({ product, size: selectedSize || product.sizes[0] || 'One Size', color: selectedColor || product.colors[0] || 'Default' }));
-        toast.success('Added to cart!', { description: product.title });
-    };
+    const allVariants = product.variants.flatMap(v => v.sizes);
+    const colors = product.variants.map(v => v.color);
+    const inStock = allVariants.some(s => s.stock > 0);
+    const images = product.variants.flatMap(v => v.sizes.flatMap(s => s.images)).filter(Boolean);
+    const firstVariant = product.variants[0];
 
-    const handleBuyNow = () => {
-        if (product.sizes.length > 0 && product.sizes[0] !== 'One Size' && !selectedSize) {
-            toast.error('Please select a size');
-            return;
-        }
-        dispatch(addToCart({ product, size: selectedSize || product.sizes[0] || 'One Size', color: selectedColor || product.colors[0] || 'Default' }));
-        router.push('/checkout');
-    };
+    // const handleAdd = () => {
+    //     if (product.sizes.length > 0 && product.sizes[0] !== 'One Size' && !selectedSize) {
+    //         toast.error('Please select a size');
+    //         return;
+    //     }
+    //     dispatch(addToCart({ product, size: selectedSize || product.sizes[0] || 'One Size', color: selectedColor || product.colors[0] || 'Default' }));
+    //     toast.success('Added to cart!', { description: product.title });
+    // };
 
-    const gallery = product.images.length > 1 ? product.images : [...product.images, ...product.images.slice(0, 3)];
+    // const handleBuyNow = () => {
+    //     if (product.sizes.length > 0 && product.sizes[0] !== 'One Size' && !selectedSize) {
+    //         toast.error('Please select a size');
+    //         return;
+    //     }
+    //     dispatch(addToCart({ product, size: selectedSize || product.sizes[0] || 'One Size', color: selectedColor || product.colors[0] || 'Default' }));
+    //     router.push('/checkout');
+    // };
+
+    const gallery = images.length > 1 ? images : [...images, ...images.slice(0, 3)];
 
     const stars = Array.from({ length: 5 }, (_, i) => i < Math.floor(product.rating));
+
+
+    console.log('Rendering ProductDetailClient for product:', product);
 
     return (
         <div className="container mx-auto px-4 py-6 pb-12">
@@ -140,35 +149,35 @@ export default function ProductDetailClient({ product, similar }: Props) {
 
                     {/* Price */}
                     <div className="flex items-baseline gap-3 flex-wrap">
-                        <span className="text-3xl font-bold text-foreground">{format(product.price)}</span>
-                        {product.originalPrice > product.price && (
+                        <span className="text-3xl font-bold text-foreground">{format(firstVariant?.sizes[0]?.price)}</span>
+                        {firstVariant?.sizes[0]?.originalPrice > firstVariant?.sizes[0]?.price && (
                             <>
-                                <span className="text-lg text-muted-foreground line-through">{format(product.originalPrice)}</span>
-                                <span className="text-sm font-bold text-white gradient-sale px-2.5 py-0.5 rounded-full">{product.discount}% OFF</span>
+                                <span className="text-lg text-muted-foreground line-through">{format(firstVariant?.sizes[0]?.originalPrice)}</span>
+                                <span className="text-sm font-bold text-white gradient-sale px-2.5 py-0.5 rounded-full">{firstVariant?.sizes[0]?.discount}% OFF</span>
                             </>
                         )}
                     </div>
-                    {product.originalPrice > product.price && (
+                    {firstVariant?.sizes[0]?.originalPrice > firstVariant?.sizes[0]?.price && (
                         <p className="text-sm text-primary font-medium">
-                            You save {format(product.originalPrice - product.price)}!
+                            You save {format(firstVariant?.sizes[0]?.originalPrice - firstVariant?.sizes[0]?.price)}!
                         </p>
                     )}
 
                     {/* Stock */}
                     <div className="flex items-center gap-2">
-                        <span className={`text-sm font-semibold px-3 py-1 rounded-full ${product.inStock ? 'bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-400'}`}>
-                            {product.inStock ? `✓ In Stock (${product.stockQuantity} available)` : '✗ Out of Stock'}
+                        <span className={`text-sm font-semibold px-3 py-1 rounded-full ${inStock ? 'bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-400' : 'bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-400'}`}>
+                            {inStock ? `✓ In Stock (${firstVariant?.sizes[0]?.stock} available)` : '✗ Out of Stock'}
                         </span>
                     </div>
 
                     {/* Color Selector */}
-                    {product.colors.length > 0 && product.colors[0] !== '' && (
+                    {colors.length > 0 && (
                         <div>
                             <p className="text-sm font-semibold text-foreground mb-2">
                                 Color: <span className="font-normal text-muted-foreground">{selectedColor}</span>
                             </p>
                             <div className="flex flex-wrap gap-2">
-                                {product.colors.map(c => (
+                                {colors.map(c => (
                                     <button
                                         key={c}
                                         onClick={() => setSelectedColor(c)}
@@ -182,19 +191,19 @@ export default function ProductDetailClient({ product, similar }: Props) {
                     )}
 
                     {/* Size Selector */}
-                    {product.sizes.length > 0 && (
+                    {firstVariant?.sizes.length > 0 && (
                         <div>
                             <p className="text-sm font-semibold text-foreground mb-2">
                                 Size: <span className="font-normal text-muted-foreground">{selectedSize || 'Select a size'}</span>
                             </p>
                             <div className="flex flex-wrap gap-2">
-                                {product.sizes.map(s => (
+                                {firstVariant?.sizes.map(s => (
                                     <button
-                                        key={s}
-                                        onClick={() => setSelectedSize(s)}
-                                        className={`min-w-[44px] px-3 py-2 text-sm rounded-lg border-2 transition-all font-medium ${selectedSize === s ? 'border-primary bg-accent text-primary' : 'border-border text-foreground hover:border-primary/50'}`}
+                                        key={s?.size}
+                                        onClick={() => setSelectedSize(s?.size)}
+                                        className={`min-w-[44px] px-3 py-2 text-sm rounded-lg border-2 transition-all font-medium ${selectedSize === s?.size ? 'border-primary bg-accent text-primary' : 'border-border text-foreground hover:border-primary/50'}`}
                                     >
-                                        {s}
+                                        {s?.size}
                                     </button>
                                 ))}
                             </div>
@@ -205,8 +214,8 @@ export default function ProductDetailClient({ product, similar }: Props) {
                     <div className="flex gap-3 flex-wrap">
                         <motion.button
                             whileTap={{ scale: 0.97 }}
-                            onClick={handleAdd}
-                            disabled={!product.inStock}
+                            // onClick={handleAdd}
+                            disabled={!inStock}
                             className="flex-1 gradient-primary text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
                         >
                             <ShoppingCart className="w-5 h-5" />
@@ -214,8 +223,8 @@ export default function ProductDetailClient({ product, similar }: Props) {
                         </motion.button>
                         <motion.button
                             whileTap={{ scale: 0.97 }}
-                            onClick={handleBuyNow}
-                            disabled={!product.inStock}
+                            // onClick={handleBuyNow}
+                            disabled={!inStock}
                             className="flex-1 border-2 border-primary text-primary py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
                         >
                             <Zap className="w-5 h-5" />
@@ -274,7 +283,7 @@ export default function ProductDetailClient({ product, similar }: Props) {
                     </div>
 
                     {/* Specifications */}
-                    {product.specifications && Object.keys(product.specifications).length > 0 && (
+                    {product?.specifications && Object.keys(product?.specifications)?.length > 0 && (
                         <div>
                             <h2 className="text-xl font-display font-bold text-foreground mb-3">Specifications</h2>
                             <div className="bg-secondary rounded-xl overflow-hidden border border-border">
