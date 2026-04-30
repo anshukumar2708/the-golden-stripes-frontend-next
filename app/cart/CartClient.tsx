@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAppSelector, useAppDispatch } from '@/store';
 import { removeFromCart, updateQuantity, clearCart } from '@/store/cartSlice';
 import { useCurrency } from '@/hooks/useCurrency';
+import { getCartItemVariant, getProductPrimaryImage } from '@/lib/productUtils';
 import { toast } from 'sonner';
 
 export default function CartClient() {
@@ -14,8 +15,11 @@ export default function CartClient() {
     const dispatch = useAppDispatch();
     const { format } = useCurrency();
 
-    const subtotal = items.reduce((a, i) => a + i.product.originalPrice * i.quantity, 0);
-    const discount = items.reduce((a, i) => a + (i.product.originalPrice - i.product.price) * i.quantity, 0);
+    const subtotal = items.reduce((a, i) => a + (getCartItemVariant(i)?.originalPrice ?? 0) * i.quantity, 0);
+    const discount = items.reduce((a, i) => {
+        const variant = getCartItemVariant(i);
+        return a + ((variant?.originalPrice ?? 0) - (variant?.price ?? 0)) * i.quantity;
+    }, 0);
     const total = subtotal - discount;
     const delivery = total >= 50 ? 0 : 5.99;
     const grandTotal = total + delivery;
@@ -50,86 +54,92 @@ export default function CartClient() {
                 {/* Items List */}
                 <div className="lg:col-span-2 space-y-3">
                     <AnimatePresence mode="popLayout">
-                        {items.map(item => (
-                            <motion.div
-                                key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`}
-                                layout
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, x: -20, height: 0 }}
-                                transition={{ duration: 0.25 }}
-                                className="bg-card border border-border rounded-xl p-4 flex gap-4"
-                            >
-                                {/* Image */}
-                                <Link href={`/product/${item.product.id}`} className="w-24 h-28 sm:w-20 sm:h-24 bg-secondary rounded-lg overflow-hidden flex-shrink-0">
-                                    <Image
-                                        src={item.product.images[0]}
-                                        alt={item.product.title}
-                                        width={96}
-                                        height={112}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </Link>
-
-                                {/* Info */}
-                                <div className="flex-1 min-w-0">
-                                    <Link href={`/product/${item.product.id}`} className="text-sm font-semibold text-foreground hover:text-primary transition-colors line-clamp-2">
-                                        {item.product.title}
+                        {items.map(item => {
+                            const variant = getCartItemVariant(item);
+                            const price = variant?.price ?? 0;
+                            const originalPrice = variant?.originalPrice ?? price;
+                            console.log("item:", item, "variant:", variant);
+                            return (
+                                <motion.div
+                                    key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`}
+                                    layout
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, x: -20, height: 0 }}
+                                    transition={{ duration: 0.25 }}
+                                    className="bg-card border border-border rounded-xl p-4 flex gap-4"
+                                >
+                                    {/* Image */}
+                                    <Link href={`/product/${item.product.id}`} className="w-24 h-28 sm:w-20 sm:h-24 bg-secondary rounded-lg overflow-hidden flex-shrink-0">
+                                        <Image
+                                            src={getProductPrimaryImage(item.product, item.selectedColor, item.selectedSize)}
+                                            alt={item.product.title}
+                                            width={96}
+                                            height={112}
+                                            className="w-full h-full object-cover"
+                                        />
                                     </Link>
-                                    <p className="text-xs text-muted-foreground mt-0.5">{item.product.brand}</p>
-                                    {(item.selectedSize || item.selectedColor) && (
-                                        <p className="text-xs text-muted-foreground mt-0.5">
-                                            {item.selectedSize && <span>Size: {item.selectedSize}</span>}
-                                            {item.selectedSize && item.selectedColor && <span> · </span>}
-                                            {item.selectedColor && <span>Color: {item.selectedColor}</span>}
-                                        </p>
-                                    )}
 
-                                    {/* Price */}
-                                    <div className="flex items-center gap-2 mt-1.5">
-                                        <span className="text-base font-bold text-foreground">{format(item.product.price)}</span>
-                                        {item.product.originalPrice > item.product.price && (
-                                            <span className="text-xs text-muted-foreground line-through">{format(item.product.originalPrice)}</span>
-                                        )}
-                                    </div>
+                                    {/* Info */}
+                                    <div className="flex-1 min-w-0">
+                                        <Link href={`/product/${item.product.id}`} className="text-sm font-semibold text-foreground hover:text-primary transition-colors line-clamp-2">
+                                            {item.product.title}
+                                        </Link>
+                                        <p className="text-xs text-muted-foreground mt-0.5">{item.product.brand}</p>
+                                        {/* {(item?.product?.selectedSize || item?.product?.selectedColor) && (
+                                            <p className="text-xs text-muted-foreground mt-0.5">
+                                                {item?.product?.selectedSize && <span>Size: {item?.product?.selectedSize}</span>}
+                                                {item?.product?.selectedSize && item?.product?.selectedColor && <span> · </span>}
+                                                {item?.product?.selectedColor && <span>Color: {item?.product?.selectedColor}</span>}
+                                            </p>
+                                        )} */}
 
-                                    {/* Qty + Remove */}
-                                    <div className="flex items-center justify-between mt-2.5">
-                                        <div className="flex items-center gap-1 bg-secondary rounded-lg">
-                                            <button
-                                                onClick={() => dispatch(updateQuantity({ productId: item.product.id, size: item.selectedSize, color: item.selectedColor, quantity: item.quantity - 1 }))}
-                                                className="p-1.5 hover:text-primary transition-colors text-foreground"
-                                                aria-label="Decrease quantity"
-                                            >
-                                                <Minus className="w-3.5 h-3.5" />
-                                            </button>
-                                            <span className="text-sm font-semibold text-foreground w-7 text-center">{item.quantity}</span>
-                                            <button
-                                                onClick={() => dispatch(updateQuantity({ productId: item.product.id, size: item.selectedSize, color: item.selectedColor, quantity: item.quantity + 1 }))}
-                                                className="p-1.5 hover:text-primary transition-colors text-foreground"
-                                                aria-label="Increase quantity"
-                                            >
-                                                <Plus className="w-3.5 h-3.5" />
-                                            </button>
+                                        {/* Price */}
+                                        <div className="flex items-center gap-2 mt-1.5">
+                                            <span className="text-base font-bold text-foreground">{format(price)}</span>
+                                            {originalPrice > price && (
+                                                <span className="text-xs text-muted-foreground line-through">{format(originalPrice)}</span>
+                                            )}
                                         </div>
 
-                                        <button
-                                            onClick={() => { dispatch(removeFromCart({ productId: item.product.id, size: item.selectedSize, color: item.selectedColor })); toast.success('Removed from cart'); }}
-                                            className="p-1.5 text-muted-foreground hover:text-destructive transition-colors"
-                                            aria-label="Remove item"
-                                        >
-                                            <Trash2 className="w-4 h-4" />
-                                        </button>
-                                    </div>
-                                </div>
+                                        {/* Qty + Remove */}
+                                        <div className="flex items-center justify-between mt-2.5">
+                                            <div className="flex items-center gap-1 bg-secondary rounded-lg">
+                                                <button
+                                                    onClick={() => dispatch(updateQuantity({ productId: item.product.id, size: item.selectedSize, color: item.selectedColor, quantity: item.quantity - 1 }))}
+                                                    className="p-1.5 hover:text-primary transition-colors text-foreground"
+                                                    aria-label="Decrease quantity"
+                                                >
+                                                    <Minus className="w-3.5 h-3.5" />
+                                                </button>
+                                                <span className="text-sm font-semibold text-foreground w-7 text-center">{item.quantity}</span>
+                                                <button
+                                                    onClick={() => dispatch(updateQuantity({ productId: item.product.id, size: item.selectedSize, color: item.selectedColor, quantity: item.quantity + 1 }))}
+                                                    className="p-1.5 hover:text-primary transition-colors text-foreground"
+                                                    aria-label="Increase quantity"
+                                                >
+                                                    <Plus className="w-3.5 h-3.5" />
+                                                </button>
+                                            </div>
 
-                                {/* Item Total */}
-                                <div className="hidden sm:flex flex-col items-end justify-center gap-1 flex-shrink-0">
-                                    <span className="text-base font-bold text-foreground">{format(item.product.price * item.quantity)}</span>
-                                    {item.quantity > 1 && <span className="text-xs text-muted-foreground">{format(item.product.price)} each</span>}
-                                </div>
-                            </motion.div>
-                        ))}
+                                            <button
+                                                onClick={() => { dispatch(removeFromCart({ productId: item.product.id, size: item.selectedSize, color: item.selectedColor })); toast.success('Removed from cart'); }}
+                                                className="p-1.5 text-muted-foreground hover:text-destructive transition-colors"
+                                                aria-label="Remove item"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Item Total */}
+                                    <div className="hidden sm:flex flex-col items-end justify-center gap-1 flex-shrink-0">
+                                        <span className="text-base font-bold text-foreground">{format(price * item.quantity)}</span>
+                                        {item.quantity > 1 && <span className="text-xs text-muted-foreground">{format(price)} each</span>}
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </AnimatePresence>
                 </div>
 

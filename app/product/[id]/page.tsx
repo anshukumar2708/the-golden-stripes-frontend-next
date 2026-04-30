@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getProductById, getSimilarProducts, products } from '@/data/products';
+import { getProductDisplayVariant, getProductImages, isProductInStock } from '@/lib/productUtils';
 import ProductDetailClient from './ProductDetailClient';
 
 interface PageProps {
@@ -16,12 +17,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const product = getProductById(id);
     if (!product) return { title: 'Product Not Found' };
 
-    const allVariants = product.variants.flatMap(v => v.sizes);
-    const inStock = allVariants.some(s => s.stock > 0);
-    const images = product.variants.flatMap(v => v.sizes.flatMap(s => s.images)).filter(Boolean);
-    const firstVariant = product.variants[0];
-
-    console.log('Rendering ProductDetailClient for product:', product);
+    const inStock = isProductInStock(product);
+    const images = getProductImages(product);
+    const displayVariant = getProductDisplayVariant(product);
 
     return {
         title: `${product.title} — ${product.brand}`,
@@ -40,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             images: [images[0]],
         },
         other: {
-            'product:price:amount': String(firstVariant?.sizes?.[0]?.price),
+            'product:price:amount': String(displayVariant?.price ?? 0),
             'product:price:currency': 'USD',
             'product:availability': inStock ? 'in stock' : 'out of stock',
         },

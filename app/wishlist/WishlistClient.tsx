@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from '@/store';
 import { removeFromWishlist } from '@/store/wishlistSlice';
 import { addToCart } from '@/store/cartSlice';
 import ProductCard from '@/components/product/ProductCard';
+import { getDefaultProductSelection } from '@/lib/productUtils';
 import { toast } from 'sonner';
 
 export default function WishlistClient() {
@@ -28,7 +29,10 @@ export default function WishlistClient() {
 
     const handleAddAllToCart = () => {
         items.forEach(product => {
-            dispatch(addToCart({ product, size: product.sizes[0] ?? 'One Size', color: product.colors[0] ?? 'Default' }));
+            const selection = getDefaultProductSelection(product);
+            if (selection.variant && selection.variant.stock > 0) {
+                dispatch(addToCart({ product, size: selection.size, color: selection.color }));
+            }
         });
         toast.success(`${items.length} items added to cart`);
     };

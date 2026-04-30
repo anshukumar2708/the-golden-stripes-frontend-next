@@ -11,7 +11,7 @@ export const currencies: CurrencyConfig[] = [
 export const categories: Category[] = [
   { name: 'All', slug: 'all' },
   { name: 'Men', slug: 'men', subcategories: [{ name: 'T-Shirts', slug: 't-shirts' }, { name: 'Shirts', slug: 'shirts' }, { name: 'Jeans', slug: 'jeans' }, { name: 'Jackets', slug: 'jackets' }, { name: 'Watches', slug: 'watches-men' }] },
-  { name: 'Women', slug: 'women', subcategories: [{ name: 'Dresses', slug: 'dresses' }, { name: 'Tops', slug: 'tops' }, { name: 'Skirts', slug: 'skirts' }, { name: 'Watches', slug: 'watches-women' }, { name: 'Beauty', slug: 'beauty' }] },
+  { name: 'Women', slug: 'women', subcategories: [{ name: 'Dresses', slug: 'dresses' }, { name: 'Tops', slug: 'tops' }, { name: 'Skirts', slug: 'skirts' }, { name: 'Watches', slug: 'watches-women' }, { name: 'Bags', slug: 'bags' }, { name: 'Jewelry', slug: 'jewelry' }, { name: 'Beauty', slug: 'beauty' }] },
   { name: 'Kids', slug: 'kids', subcategories: [{ name: 'Boys', slug: 'boys' }, { name: 'Girls', slug: 'girls' }, { name: 'Toys', slug: 'toys' }] },
   { name: 'Electronics', slug: 'electronics', subcategories: [{ name: 'Mobiles', slug: 'mobiles' }, { name: 'Laptops', slug: 'laptops' }, { name: 'TVs', slug: 'tvs' }, { name: 'Headphones', slug: 'headphones' }] },
   { name: 'Grocery', slug: 'grocery', subcategories: [{ name: 'Fruits', slug: 'fruits' }, { name: 'Dairy', slug: 'dairy' }, { name: 'Snacks', slug: 'snacks' }] },
@@ -1717,9 +1717,11 @@ export const products: Product[] = [
   },
 ];
 
-export const brands = ['Bloom Studio', 'Urban Chic', 'Denim Co.', 'Comfy Club', 'Glamour Edit', 'Luxe Lane', 'TechVision', 'VistaMax', 'HomeElegance', 'Glow Lab', 'NatureFarm', 'Street Co.', 'Tiny Threads', 'Tempo Luxe'];
-export const allColors = ['White', 'Black', 'Blush', 'Rose', 'Ivory', 'Sage', 'Indigo', 'Champagne', 'Wine', 'Navy', 'Tan', 'Gold', 'Silver', 'Green', 'Blue', 'Pink', 'Purple'];
-export const allSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'One Size'];
+export const brands = Array.from(new Set(products.map(product => product.brand))).sort();
+export const allColors = Array.from(new Set(products.flatMap(product => product.variants.map(variant => variant.color)))).sort();
+export const allSizes = Array.from(
+  new Set(products.flatMap(product => product.variants.flatMap(variant => variant.sizes.map(size => size.size))))
+).sort();
 
 export const getProductsByCategory = (slug: string): Product[] => {
   if (slug === 'all') return products;

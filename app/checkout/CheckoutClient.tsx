@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAppSelector, useAppDispatch } from '@/store';
 import { clearCart } from '@/store/cartSlice';
 import { useCurrency } from '@/hooks/useCurrency';
+import { getCartItemVariant, getProductPrimaryImage } from '@/lib/productUtils';
 import { toast } from 'sonner';
 
 type Step = 'address' | 'payment' | 'review' | 'success';
@@ -26,10 +27,10 @@ export default function CheckoutClient() {
     const [address, setAddress] = useState({ name: '', phone: '', street: '', city: '', state: '', zip: '', country: 'United States' });
     const [payment, setPayment] = useState({ method: 'card', cardName: '', cardNumber: '', expiry: '', cvv: '' });
 
-    const subtotal = items.reduce((a, i) => a + i.product.price * i.quantity, 0);
-    const originalSubtotal = items.reduce((a, i) => a + i.product.originalPrice * i.quantity, 0);
+    const subtotal = items.reduce((a, i) => a + (getCartItemVariant(i)?.price ?? 0) * i.quantity, 0);
+    const originalSubtotal = items.reduce((a, i) => a + (getCartItemVariant(i)?.originalPrice ?? 0) * i.quantity, 0);
     const discount = originalSubtotal - subtotal;
-    const delivery = subtotal - discount >= 50 ? 0 : 5.99;
+    const delivery = subtotal >= 50 ? 0 : 5.99;
     const total = subtotal + delivery;
 
     if (items.length === 0 && step !== 'success') {
@@ -308,18 +309,22 @@ export default function CheckoutClient() {
 
                                     {/* Items */}
                                     <div className="space-y-3">
-                                        {items.map(item => (
-                                            <div key={`${item.product.id}-${item.selectedSize}`} className="flex gap-3">
+                                        {items.map(item => {
+                                            const variant = getCartItemVariant(item);
+                                            const price = variant?.price ?? 0;
+                                            return (
+                                            <div key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`} className="flex gap-3">
                                                 <div className="w-12 h-14 bg-secondary rounded-lg overflow-hidden flex-shrink-0">
-                                                    <Image src={item.product.images[0]} alt={item.product.title} width={48} height={56} className="w-full h-full object-cover" />
+                                                    <Image src={getProductPrimaryImage(item.product, item.selectedColor, item.selectedSize)} alt={item.product.title} width={48} height={56} className="w-full h-full object-cover" />
                                                 </div>
                                                 <div className="flex-1 min-w-0">
                                                     <p className="text-sm font-medium text-foreground line-clamp-1">{item.product.title}</p>
                                                     <p className="text-xs text-muted-foreground">{item.selectedSize} · {item.selectedColor} · Qty: {item.quantity}</p>
                                                 </div>
-                                                <span className="text-sm font-bold text-foreground flex-shrink-0">{format(item.product.price * item.quantity)}</span>
+                                                <span className="text-sm font-bold text-foreground flex-shrink-0">{format(price * item.quantity)}</span>
                                             </div>
-                                        ))}
+                                            );
+                                        })}
                                     </div>
 
                                     <div className="flex gap-3">

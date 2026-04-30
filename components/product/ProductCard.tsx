@@ -8,6 +8,13 @@ import { useAppDispatch, useAppSelector } from '@/store';
 import { toggleWishlist } from '@/store/wishlistSlice';
 import { addToCart } from '@/store/cartSlice';
 import { useCurrency } from '@/hooks/useCurrency';
+import {
+    getDefaultProductSelection,
+    getProductColors,
+    getProductDisplayVariant,
+    getProductPrimaryImage,
+    isProductInStock,
+} from '@/lib/productUtils';
 import type { Product } from '@/types';
 import { toast } from 'sonner';
 
@@ -24,7 +31,12 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
-        dispatch(addToCart({ product, size: product.variants[0].sizes[0] ?? 'One Size', color: product.variants[0].color ?? 'Default' }));
+        const selection = getDefaultProductSelection(product);
+        if (!selection.variant || selection.variant.stock <= 0) {
+            toast.error('This item is out of stock');
+            return;
+        }
+        dispatch(addToCart({ product, size: selection.size, color: selection.color }));
         toast.success('Added to cart', { description: product.title });
     };
 
@@ -35,11 +47,10 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         toast.success(isWished ? 'Removed from wishlist' : 'Added to wishlist');
     };
 
-    const allVariants = product.variants.flatMap(v => v.sizes);
-    const inStock = allVariants.some(s => s.stock > 0);
-    const colors = product.variants.map(v => v.color);
-
-    const firstVariant = product.variants[0];
+    const inStock = isProductInStock(product);
+    const colors = getProductColors(product);
+    const displayVariant = getProductDisplayVariant(product);
+    const primaryImage = getProductPrimaryImage(product);
 
     return (
         <motion.div
@@ -55,7 +66,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                     {/* Image */}
                     <div className="relative aspect-[8/9] bg-secondary overflow-hidden">
                         <Image
-                            src={firstVariant?.sizes?.[0]?.images?.[0] || '/placeholder.png'}
+                            src={primaryImage}
                             alt={product.title}
                             fill
                             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -64,9 +75,9 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                         />
 
                         {/* Discount badge */}
-                        {firstVariant?.sizes?.[0]?.discount > 0 && (
+                        {displayVariant && displayVariant.discount > 0 && (
                             <span className="absolute top-3 left-3 gradient-sale text-white text-xs font-bold px-2.5 py-1 rounded-full">
-                                {firstVariant?.sizes[0]?.discount}% OFF
+                                {displayVariant.discount}% OFF
                             </span>
                         )}
 
@@ -109,11 +120,11 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                             <span className="text-sm text-muted-foreground">{product.rating} ({product.reviewCount.toLocaleString()})</span>
                         </div>
                         <div className="flex items-center gap-2 mt-2 flex-wrap">
-                            <span className="text-lg font-bold text-foreground">{format(firstVariant?.sizes?.[0]?.price)}</span>
-                            {firstVariant?.sizes?.[0]?.originalPrice > firstVariant?.sizes?.[0]?.price && (
+                            <span className="text-lg font-bold text-foreground">{format(displayVariant?.price ?? 0)}</span>
+                            {displayVariant && displayVariant.originalPrice > displayVariant.price && (
                                 <>
-                                    <span className="text-sm text-muted-foreground line-through">{format(firstVariant?.sizes?.[0]?.originalPrice)}</span>
-                                    <span className="text-sm font-semibold text-primary">{firstVariant?.sizes?.[0]?.discount}% off</span>
+                                    <span className="text-sm text-muted-foreground line-through">{format(displayVariant.originalPrice)}</span>
+                                    <span className="text-sm font-semibold text-primary">{displayVariant.discount}% off</span>
                                 </>
                             )}
                         </div>

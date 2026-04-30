@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { products, categories } from '@/data/products';
+import { getProductMinPrice } from '@/lib/productUtils';
 import SearchClient from './SearchClient';
 
 interface PageProps {
@@ -42,7 +43,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
         if (category === 'sale') {
             filtered = filtered.filter(p => p.tags.includes('sale'));
         } else {
-            filtered = filtered.filter(p => p.category === category || p.subcategory === category);
+            filtered = filtered.filter(p => p.category === category || p.subCategory === category);
         }
     }
 
@@ -51,8 +52,8 @@ export default async function SearchPage({ searchParams }: PageProps) {
     }
 
     // Sort
-    if (sort === 'price-asc') filtered.sort((a, b) => a.price - b.price);
-    else if (sort === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+    if (sort === 'price-asc') filtered.sort((a, b) => getProductMinPrice(a) - getProductMinPrice(b));
+    else if (sort === 'price-desc') filtered.sort((a, b) => getProductMinPrice(b) - getProductMinPrice(a));
     else if (sort === 'rating') filtered.sort((a, b) => b.rating - a.rating);
     else if (sort === 'newest') filtered = filtered.filter(p => p.tags.includes('new-arrivals')).concat(filtered.filter(p => !p.tags.includes('new-arrivals')));
 
