@@ -2,6 +2,11 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
+import { Autoplay } from 'swiper/modules';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAppDispatch, useAppSelector } from '@/store';
@@ -12,7 +17,6 @@ import {
     getDefaultProductSelection,
     getProductColors,
     getProductDisplayVariant,
-    getProductPrimaryImage,
     isProductInStock,
 } from '@/lib/productUtils';
 import type { Product } from '@/types';
@@ -50,7 +54,6 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
     const inStock = isProductInStock(product);
     const colors = getProductColors(product);
     const displayVariant = getProductDisplayVariant(product);
-    const primaryImage = getProductPrimaryImage(product);
 
     return (
         <motion.div
@@ -65,14 +68,40 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                 <div className="bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300 border border-border hover:border-primary/40 h-full flex flex-col">
                     {/* Image */}
                     <div className="relative aspect-[8/9] bg-secondary overflow-hidden">
-                        <Image
-                            src={primaryImage}
+                        {/* <Image
+                            src={displayVariant?.images?.[0] ?? "/placeholder.png"}
                             alt={product.title}
                             fill
                             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"
-                        />
+                        /> */}
+                        <Swiper
+                            modules={[Autoplay]}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                            }}
+                            loop={true}
+                            className="w-full h-full"
+                        >
+                            {(displayVariant?.images?.length
+                                ? displayVariant.images
+                                : ["/placeholder.png"]
+                            ).map((img, index) => (
+                                <SwiperSlide key={index}>
+                                    <div className="relative w-full h-full">
+                                        <Image
+                                            src={img}
+                                            alt={`${product.title}-${index}`}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
 
                         {/* Discount badge */}
                         {displayVariant && displayVariant.discount > 0 && (
