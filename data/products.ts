@@ -32,6 +32,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Rose",
+        images: [
+          'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600',
+          'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600'
+        ],
         sizes: [
           {
             size: "M",
@@ -40,15 +44,14 @@ export const products: Product[] = [
             price: 49.99,
             originalPrice: 79.99,
             discount: 38,
-            images: [
-              'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600',
-              'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600'
-            ]
           }
         ]
       },
       {
         color: "Ivory",
+        images: [
+          'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600'
+        ],
         sizes: [
           {
             size: "M",
@@ -57,9 +60,6 @@ export const products: Product[] = [
             price: 49.99,
             originalPrice: 79.99,
             discount: 38,
-            images: [
-              'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600'
-            ]
           }
         ]
       }
@@ -81,6 +81,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "White",
+        images: [
+          'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600'
+        ]
+        ,
         sizes: [
           {
             size: "S",
@@ -89,14 +93,14 @@ export const products: Product[] = [
             price: 24.99,
             originalPrice: 34.99,
             discount: 29,
-            images: [
-              'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600'
-            ]
           }
         ]
       },
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600'
+        ],
         sizes: [
           {
             size: "M",
@@ -105,9 +109,7 @@ export const products: Product[] = [
             price: 24.99,
             originalPrice: 34.99,
             discount: 29,
-            images: [
-              'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600'
-            ]
+
           }
         ]
       }
@@ -129,6 +131,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Indigo",
+        images: [
+          'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600'
+        ],
         sizes: [
           {
             size: "M",
@@ -137,14 +142,15 @@ export const products: Product[] = [
             price: 59.99,
             originalPrice: 89.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1475178626620-a4d074967452?w=600'
+        ],
         sizes: [
           {
             size: "L",
@@ -153,9 +159,7 @@ export const products: Product[] = [
             price: 59.99,
             originalPrice: 89.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1475178626620-a4d074967452?w=600'
-            ]
+
           }
         ]
       }
@@ -177,6 +181,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Blush",
+        images: [
+          'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600'
+        ],
         sizes: [
           {
             size: "M",
@@ -185,14 +192,15 @@ export const products: Product[] = [
             price: 39.99,
             originalPrice: 54.99,
             discount: 27,
-            images: [
-              'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Lavender",
+        images: [
+          'https://picsum.photos/seed/hoodie-cozy/600/800'
+        ],
         sizes: [
           {
             size: "L",
@@ -201,9 +209,7 @@ export const products: Product[] = [
             price: 39.99,
             originalPrice: 54.99,
             discount: 27,
-            images: [
-              'https://picsum.photos/seed/hoodie-cozy/600/800'
-            ]
+
           }
         ]
       }
@@ -225,6 +231,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Black",
+        images: [
+          'https://picsum.photos/seed/midi-skirt-w/600/800'
+        ],
         sizes: [
           {
             size: "M",
@@ -233,9 +242,7 @@ export const products: Product[] = [
             price: 44.99,
             originalPrice: 64.99,
             discount: 31,
-            images: [
-              'https://picsum.photos/seed/midi-skirt-w/600/800'
-            ]
+
           }
         ]
       }
@@ -257,6 +264,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600'
+        ],
         sizes: [
           {
             size: "S",
@@ -265,14 +275,15 @@ export const products: Product[] = [
             price: 79.99,
             originalPrice: 129.99,
             discount: 38,
-            images: [
-              'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Wine",
+        images: [
+          'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600'
+        ],
         sizes: [
           {
             size: "M",
@@ -281,9 +292,6 @@ export const products: Product[] = [
             price: 79.99,
             originalPrice: 129.99,
             discount: 38,
-            images: [
-              'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600'
-            ]
           }
         ]
       }
@@ -305,6 +313,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Rose Gold",
+        images: [
+          'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600',
+          'https://images.unsplash.com/photo-1526045431048-f857369baa09?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -313,15 +325,16 @@ export const products: Product[] = [
             price: 149.99,
             originalPrice: 199.99,
             discount: 25,
-            images: [
-              'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600',
-              'https://images.unsplash.com/photo-1526045431048-f857369baa09?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Silver",
+        images: [
+          'https://images.unsplash.com/photo-1511385348-a52b4a160dc2?w=600',
+          'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -330,10 +343,7 @@ export const products: Product[] = [
             price: 149.99,
             originalPrice: 199.99,
             discount: 25,
-            images: [
-              'https://images.unsplash.com/photo-1511385348-a52b4a160dc2?w=600',
-              'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600'
-            ]
+
           }
         ]
       }
@@ -361,6 +371,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Default",
+        images: [
+          'https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=600',
+          'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600'
+        ],
         sizes: [
           {
             size: "30ml",
@@ -369,10 +383,7 @@ export const products: Product[] = [
             price: 34.99,
             originalPrice: 49.99,
             discount: 30,
-            images: [
-              'https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=600',
-              'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600'
-            ]
+
           },
           {
             size: "50ml",
@@ -381,9 +392,6 @@ export const products: Product[] = [
             price: 49.99,
             originalPrice: 69.99,
             discount: 28,
-            images: [
-              'https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=600'
-            ]
           }
         ]
       }
@@ -410,6 +418,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Red",
+        images: [
+          'https://images.unsplash.com/photo-1586495777744-4e6b8b1e7cfd?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -418,14 +429,15 @@ export const products: Product[] = [
             price: 29.99,
             originalPrice: 44.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1586495777744-4e6b8b1e7cfd?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Nude",
+        images: [
+          'https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -434,14 +446,15 @@ export const products: Product[] = [
             price: 29.99,
             originalPrice: 44.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Berry",
+        images: [
+          'https://images.unsplash.com/photo-1600180758890-6c3b8aef2d03?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -450,9 +463,7 @@ export const products: Product[] = [
             price: 29.99,
             originalPrice: 44.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1600180758890-6c3b8aef2d03?w=600'
-            ]
+
           }
         ]
       }
@@ -474,6 +485,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Default",
+        images: [
+          'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600',
+          'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600'
+        ],
         sizes: [
           {
             size: "200ml",
@@ -482,9 +497,7 @@ export const products: Product[] = [
             price: 22.99,
             originalPrice: 32.99,
             discount: 30,
-            images: [
-              'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600'
-            ]
+
           },
           {
             size: "400ml",
@@ -493,9 +506,6 @@ export const products: Product[] = [
             price: 34.99,
             originalPrice: 49.99,
             discount: 30,
-            images: [
-              'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600'
-            ]
           }
         ]
       }
@@ -517,6 +527,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "White",
+        images: [
+          'https://images.unsplash.com/photo-1604695573706-53170668f6a6?w=600'
+        ],
         sizes: [
           {
             size: "M",
@@ -525,14 +538,15 @@ export const products: Product[] = [
             price: 45.99,
             originalPrice: 64.99,
             discount: 29,
-            images: [
-              'https://images.unsplash.com/photo-1604695573706-53170668f6a6?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Light Blue",
+        images: [
+          'https://picsum.photos/seed/oxford-shirt-m/600/800'
+        ],
         sizes: [
           {
             size: "L",
@@ -541,9 +555,7 @@ export const products: Product[] = [
             price: 45.99,
             originalPrice: 64.99,
             discount: 29,
-            images: [
-              'https://picsum.photos/seed/oxford-shirt-m/600/800'
-            ]
+
           }
         ]
       }
@@ -570,6 +582,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Khaki",
+        images: [
+          'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600'
+        ],
         sizes: [
           {
             size: "32",
@@ -578,14 +593,15 @@ export const products: Product[] = [
             price: 52.99,
             originalPrice: 74.99,
             discount: 29,
-            images: [
-              'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Black",
+        images: [
+          'https://picsum.photos/seed/oxford-shirt-m/600/800'
+        ],
         sizes: [
           {
             size: "34",
@@ -594,9 +610,7 @@ export const products: Product[] = [
             price: 52.99,
             originalPrice: 74.99,
             discount: 29,
-            images: [
-              'https://picsum.photos/seed/oxford-shirt-m/600/800'
-            ]
+
           }
         ]
       }
@@ -618,6 +632,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "White",
+        images: [
+          'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=600'
+        ],
         sizes: [
           {
             size: "M",
@@ -626,14 +643,15 @@ export const products: Product[] = [
             price: 22.99,
             originalPrice: 29.99,
             discount: 23,
-            images: [
-              'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600'
+        ],
         sizes: [
           {
             size: "L",
@@ -642,9 +660,7 @@ export const products: Product[] = [
             price: 22.99,
             originalPrice: 29.99,
             discount: 23,
-            images: [
-              'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600'
-            ]
+
           }
         ]
       }
@@ -666,6 +682,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600'
+        ],
         sizes: [
           {
             size: "M",
@@ -674,14 +693,15 @@ export const products: Product[] = [
             price: 129.99,
             originalPrice: 189.99,
             discount: 32,
-            images: [
-              'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Brown",
+        images: [
+          'https://picsum.photos/seed/biker-jacket-m/600/800'
+        ],
         sizes: [
           {
             size: "L",
@@ -690,9 +710,7 @@ export const products: Product[] = [
             price: 129.99,
             originalPrice: 189.99,
             discount: 32,
-            images: [
-              'https://picsum.photos/seed/biker-jacket-m/600/800'
-            ]
+
           }
         ]
       }
@@ -714,6 +732,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1627384113710-424c9181ebbb?w=600',
+          'https://picsum.photos/seed/chrono-watch-m/600/800'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -722,15 +744,16 @@ export const products: Product[] = [
             price: 249.99,
             originalPrice: 349.99,
             discount: 29,
-            images: [
-              'https://images.unsplash.com/photo-1627384113710-424c9181ebbb?w=600',
-              'https://picsum.photos/seed/chrono-watch-m/600/800'
-            ]
+
           }
         ]
       },
       {
         color: "Silver",
+        images: [
+          'https://images.unsplash.com/photo-1511385348-a52b4a160dc2?w=600',
+          'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -739,15 +762,17 @@ export const products: Product[] = [
             price: 249.99,
             originalPrice: 349.99,
             discount: 29,
-            images: [
-              'https://images.unsplash.com/photo-1511385348-a52b4a160dc2?w=600',
-              'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Gold",
+        images: [
+          'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600',
+          'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600'
+        ]
+        ,
         sizes: [
           {
             size: "One Size",
@@ -756,10 +781,7 @@ export const products: Product[] = [
             price: 249.99,
             originalPrice: 349.99,
             discount: 29,
-            images: [
-              'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600',
-              'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600'
-            ]
+
           }
         ]
       }
@@ -788,6 +810,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Blue",
+        images: [
+          'https://images.unsplash.com/photo-1519278409-1f56fdda7fe5?w=600'
+        ],
         sizes: [
           {
             size: "4Y",
@@ -796,14 +821,15 @@ export const products: Product[] = [
             price: 16.99,
             originalPrice: 24.99,
             discount: 32,
-            images: [
-              'https://images.unsplash.com/photo-1519278409-1f56fdda7fe5?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Green",
+        images: [
+          'https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=600'
+        ],
         sizes: [
           {
             size: "5Y",
@@ -812,14 +838,15 @@ export const products: Product[] = [
             price: 16.99,
             originalPrice: 24.99,
             discount: 32,
-            images: [
-              'https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Yellow",
+        images: [
+          'https://images.unsplash.com/photo-1519278409-1f56fdda7fe5?w=600'
+        ],
         sizes: [
           {
             size: "6Y",
@@ -828,9 +855,6 @@ export const products: Product[] = [
             price: 16.99,
             originalPrice: 24.99,
             discount: 32,
-            images: [
-              'https://images.unsplash.com/photo-1519278409-1f56fdda7fe5?w=600'
-            ]
           }
         ]
       }
@@ -852,6 +876,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Pink",
+        images: [
+          'https://images.unsplash.com/photo-1478369402113-1fd53f17e8b4?w=600'
+        ],
         sizes: [
           {
             size: "4Y",
@@ -860,14 +887,14 @@ export const products: Product[] = [
             price: 28.99,
             originalPrice: 39.99,
             discount: 28,
-            images: [
-              'https://images.unsplash.com/photo-1478369402113-1fd53f17e8b4?w=600'
-            ]
           }
         ]
       },
       {
         color: "Purple",
+        images: [
+          'https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600'
+        ],
         sizes: [
           {
             size: "5Y",
@@ -876,14 +903,15 @@ export const products: Product[] = [
             price: 28.99,
             originalPrice: 39.99,
             discount: 28,
-            images: [
-              'https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "White",
+        images: [
+          'https://images.unsplash.com/photo-1478369402113-1fd53f17e8b4?w=600'
+        ],
         sizes: [
           {
             size: "6Y",
@@ -892,9 +920,7 @@ export const products: Product[] = [
             price: 28.99,
             originalPrice: 39.99,
             discount: 28,
-            images: [
-              'https://images.unsplash.com/photo-1478369402113-1fd53f17e8b4?w=600'
-            ]
+
           }
         ]
       }
@@ -917,6 +943,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Midnight Black",
+        images: [
+          'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600'
+        ],
         sizes: [
           {
             size: "128GB",
@@ -925,9 +954,7 @@ export const products: Product[] = [
             price: 899.99,
             originalPrice: 1099.99,
             discount: 18,
-            images: [
-              'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600'
-            ]
+
           },
           {
             size: "256GB",
@@ -936,14 +963,14 @@ export const products: Product[] = [
             price: 949.99,
             originalPrice: 1149.99,
             discount: 17,
-            images: [
-              'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600'
-            ]
           }
         ]
       },
       {
         color: "Glacier White",
+        images: [
+          'https://images.unsplash.com/photo-1592950630581-03cb41342cc5?w=600'
+        ],
         sizes: [
           {
             size: "256GB",
@@ -952,14 +979,15 @@ export const products: Product[] = [
             price: 949.99,
             originalPrice: 1149.99,
             discount: 17,
-            images: [
-              'https://images.unsplash.com/photo-1592950630581-03cb41342cc5?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Cosmic Purple",
+        images: [
+          'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600'
+        ],
         sizes: [
           {
             size: "512GB",
@@ -968,9 +996,7 @@ export const products: Product[] = [
             price: 999.99,
             originalPrice: 1199.99,
             discount: 17,
-            images: [
-              'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600'
-            ]
+
           }
         ]
       }
@@ -1008,6 +1034,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Blue",
+        images: [
+          'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600'
+        ],
         sizes: [
           {
             size: "64GB",
@@ -1016,14 +1045,15 @@ export const products: Product[] = [
             price: 249.99,
             originalPrice: 329.99,
             discount: 24,
-            images: [
-              'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600'
+        ],
         sizes: [
           {
             size: "128GB",
@@ -1032,14 +1062,15 @@ export const products: Product[] = [
             price: 269.99,
             originalPrice: 349.99,
             discount: 23,
-            images: [
-              'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Green",
+        images: [
+          'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600'
+        ],
         sizes: [
           {
             size: "128GB",
@@ -1048,9 +1079,7 @@ export const products: Product[] = [
             price: 269.99,
             originalPrice: 349.99,
             discount: 23,
-            images: [
-              'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600'
-            ]
+
           }
         ]
       }
@@ -1082,6 +1111,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Silver",
+        images: [
+          'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600'
+        ],
         sizes: [
           {
             size: "512GB SSD",
@@ -1090,9 +1122,6 @@ export const products: Product[] = [
             price: 1299.99,
             originalPrice: 1599.99,
             discount: 19,
-            images: [
-              'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600'
-            ]
           },
           {
             size: "1TB SSD",
@@ -1101,14 +1130,14 @@ export const products: Product[] = [
             price: 1399.99,
             originalPrice: 1699.99,
             discount: 18,
-            images: [
-              'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600'
-            ]
           }
         ]
       },
       {
         color: "Space Grey",
+        images: [
+          'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600'
+        ],
         sizes: [
           {
             size: "512GB SSD",
@@ -1117,9 +1146,6 @@ export const products: Product[] = [
             price: 1299.99,
             originalPrice: 1599.99,
             discount: 19,
-            images: [
-              'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600'
-            ]
           }
         ]
       }
@@ -1156,6 +1182,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600',
+          'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600'
+        ],
         sizes: [
           {
             size: "512GB SSD",
@@ -1164,9 +1194,6 @@ export const products: Product[] = [
             price: 1599.99,
             originalPrice: 1999.99,
             discount: 20,
-            images: [
-              'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600'
-            ]
           },
           {
             size: "1TB SSD",
@@ -1175,9 +1202,6 @@ export const products: Product[] = [
             price: 1699.99,
             originalPrice: 2099.99,
             discount: 19,
-            images: [
-              'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600'
-            ]
           }
         ]
       }
@@ -1206,6 +1230,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600',
+          'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600',
+        ],
         sizes: [
           {
             size: '43"',
@@ -1214,9 +1242,6 @@ export const products: Product[] = [
             price: 499.99,
             originalPrice: 699.99,
             discount: 28,
-            images: [
-              'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600'
-            ]
           },
           {
             size: '55"',
@@ -1225,9 +1250,6 @@ export const products: Product[] = [
             price: 699.99,
             originalPrice: 999.99,
             discount: 30,
-            images: [
-              'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600'
-            ]
           },
           {
             size: '65"',
@@ -1236,9 +1258,6 @@ export const products: Product[] = [
             price: 899.99,
             originalPrice: 1199.99,
             discount: 25,
-            images: [
-              'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600'
-            ]
           },
           {
             size: '75"',
@@ -1247,9 +1266,6 @@ export const products: Product[] = [
             price: 1199.99,
             originalPrice: 1499.99,
             discount: 20,
-            images: [
-              'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600'
-            ]
           }
         ]
       }
@@ -1286,6 +1302,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Default",
+        images: [
+          'https://images.unsplash.com/photo-1543168256-418811576931?w=600',
+          'https://images.unsplash.com/photo-1578910208873-21fcf1ed0cca?w=600',
+        ],
         sizes: [
           {
             size: "500g",
@@ -1294,9 +1314,7 @@ export const products: Product[] = [
             price: 10.99,
             originalPrice: 14.99,
             discount: 26,
-            images: [
-              'https://images.unsplash.com/photo-1543168256-418811576931?w=600'
-            ]
+
           },
           {
             size: "1kg",
@@ -1305,9 +1323,6 @@ export const products: Product[] = [
             price: 18.99,
             originalPrice: 24.99,
             discount: 24,
-            images: [
-              'https://images.unsplash.com/photo-1578910208873-21fcf1ed0cca?w=600'
-            ]
           },
           {
             size: "2kg",
@@ -1316,9 +1331,6 @@ export const products: Product[] = [
             price: 34.99,
             originalPrice: 44.99,
             discount: 22,
-            images: [
-              'https://images.unsplash.com/photo-1543168256-418811576931?w=600'
-            ]
           }
         ]
       }
@@ -1346,6 +1358,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Default",
+        images: [
+          'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600',
+          'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600'
+        ],
         sizes: [
           {
             size: "1L",
@@ -1354,9 +1370,7 @@ export const products: Product[] = [
             price: 2.49,
             originalPrice: 3.49,
             discount: 28,
-            images: [
-              'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600'
-            ]
+
           },
           {
             size: "2L",
@@ -1365,9 +1379,6 @@ export const products: Product[] = [
             price: 3.99,
             originalPrice: 4.99,
             discount: 20,
-            images: [
-              'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600'
-            ]
           }
         ]
       }
@@ -1389,6 +1400,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Default",
+        images: [
+          'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600',
+          'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'
+        ],
         sizes: [
           {
             size: "30 Tablets",
@@ -1397,9 +1412,7 @@ export const products: Product[] = [
             price: 12.99,
             originalPrice: 17.99,
             discount: 28,
-            images: [
-              'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600'
-            ]
+
           },
           {
             size: "60 Tablets",
@@ -1408,9 +1421,6 @@ export const products: Product[] = [
             price: 19.99,
             originalPrice: 27.99,
             discount: 28,
-            images: [
-              'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600'
-            ]
           }
         ]
       }
@@ -1439,6 +1449,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Emerald Green",
+        images: [
+          'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600'
+        ],
         sizes: [
           {
             size: "3-Seater",
@@ -1447,14 +1460,15 @@ export const products: Product[] = [
             price: 799.99,
             originalPrice: 1199.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Navy Blue",
+        images: [
+          'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600'
+        ],
         sizes: [
           {
             size: "3-Seater",
@@ -1463,14 +1477,15 @@ export const products: Product[] = [
             price: 799.99,
             originalPrice: 1199.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Dusty Pink",
+        images: [
+          'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600'
+        ],
         sizes: [
           {
             size: "3-Seater",
@@ -1479,14 +1494,15 @@ export const products: Product[] = [
             price: 799.99,
             originalPrice: 1199.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Charcoal",
+        images: [
+          'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600'
+        ],
         sizes: [
           {
             size: "3-Seater",
@@ -1495,9 +1511,7 @@ export const products: Product[] = [
             price: 799.99,
             originalPrice: 1199.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600'
-            ]
+
           }
         ]
       }
@@ -1532,6 +1546,10 @@ export const products: Product[] = [
     variants: [
       {
         color: "Natural Oak",
+        images: [
+          'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600',
+          'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600'
+        ],
         sizes: [
           {
             size: "4-Seater",
@@ -1540,9 +1558,7 @@ export const products: Product[] = [
             price: 449.99,
             originalPrice: 649.99,
             discount: 31,
-            images: [
-              'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600'
-            ]
+
           },
           {
             size: "6-Seater",
@@ -1551,14 +1567,14 @@ export const products: Product[] = [
             price: 499.99,
             originalPrice: 699.99,
             discount: 29,
-            images: [
-              'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600'
-            ]
           }
         ]
       },
       {
         color: "Walnut",
+        images: [
+          'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600'
+        ],
         sizes: [
           {
             size: "6-Seater",
@@ -1567,9 +1583,7 @@ export const products: Product[] = [
             price: 529.99,
             originalPrice: 749.99,
             discount: 29,
-            images: [
-              'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600'
-            ]
+
           }
         ]
       }
@@ -1588,7 +1602,7 @@ export const products: Product[] = [
     }
   },
   // ─── ACCESSORIES ──────────────────────────────────────────────────────────
-    {
+  {
     id: 'a-001',
     title: 'Leather Crossbody Bag',
     description: 'Compact yet spacious crossbody bag in premium faux leather.',
@@ -1597,6 +1611,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Tan",
+        images: [
+          'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -1605,14 +1622,15 @@ export const products: Product[] = [
             price: 34.99,
             originalPrice: 49.99,
             discount: 30,
-            images: [
-              'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Black",
+        images: [
+          'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -1621,14 +1639,15 @@ export const products: Product[] = [
             price: 34.99,
             originalPrice: 49.99,
             discount: 30,
-            images: [
-              'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Blush",
+        images: [
+          'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -1637,9 +1656,7 @@ export const products: Product[] = [
             price: 34.99,
             originalPrice: 49.99,
             discount: 30,
-            images: [
-              'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600'
-            ]
+
           }
         ]
       }
@@ -1661,6 +1678,9 @@ export const products: Product[] = [
     variants: [
       {
         color: "Gold",
+        images: [
+          'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -1669,14 +1689,15 @@ export const products: Product[] = [
             price: 19.99,
             originalPrice: 29.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Silver",
+        images: [
+          'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -1685,14 +1706,15 @@ export const products: Product[] = [
             price: 19.99,
             originalPrice: 29.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600'
-            ]
+
           }
         ]
       },
       {
         color: "Rose Gold",
+        images: [
+          'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600'
+        ],
         sizes: [
           {
             size: "One Size",
@@ -1701,9 +1723,7 @@ export const products: Product[] = [
             price: 19.99,
             originalPrice: 29.99,
             discount: 33,
-            images: [
-              'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600'
-            ]
+
           }
         ]
       }

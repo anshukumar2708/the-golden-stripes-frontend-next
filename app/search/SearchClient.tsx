@@ -146,7 +146,7 @@ export default function SearchClient({ initialProducts, query, categoryName, tag
                             <div className="flex items-center justify-between">
                                 <h3 className="font-semibold text-foreground text-sm">Filters</h3>
                                 {activeFiltersCount > 0 && (
-                                    <button onClick={clearFilters} className="text-xs text-primary hover:underline">Clear all</button>
+                                    <button type="button" onClick={clearFilters} className="text-xs text-primary hover:underline">Clear all</button>
                                 )}
                             </div>
 
@@ -243,7 +243,7 @@ export default function SearchClient({ initialProducts, query, categoryName, tag
                             <Search className="w-12 h-12 text-muted-foreground mx-auto mb-3" />
                             <h2 className="text-xl font-display font-bold text-foreground">No products found</h2>
                             <p className="text-muted-foreground mt-1 text-sm">Try adjusting your filters or search term</p>
-                            <button onClick={clearFilters} className="mt-4 gradient-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+                            <button type="button" onClick={clearFilters} className="mt-4 gradient-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
                                 Clear Filters
                             </button>
                         </div>

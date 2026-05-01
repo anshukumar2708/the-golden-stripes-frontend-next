@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,6 +18,7 @@ import {
     getDefaultProductSelection,
     getProductColors,
     getProductDisplayVariant,
+    getProductImages,
     isProductInStock,
 } from '@/lib/productUtils';
 import type { Product } from '@/types';
@@ -51,9 +53,13 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         toast.success(isWished ? 'Removed from wishlist' : 'Added to wishlist');
     };
 
-    const inStock = isProductInStock(product);
-    const colors = getProductColors(product);
-    const displayVariant = getProductDisplayVariant(product);
+    const inStock = useMemo(() => isProductInStock(product), [product]);
+    const colors = useMemo(() => getProductColors(product), [product]);
+    const displayVariant = useMemo(() => getProductDisplayVariant(product), [product]);
+    const gallery = useMemo(() => {
+        const images = getProductImages(product);
+        return images.length > 0 ? images : ['/placeholder.png'];
+    }, [product]);
 
     return (
         <motion.div
@@ -68,14 +74,6 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                 <div className="bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300 border border-border hover:border-primary/40 h-full flex flex-col">
                     {/* Image */}
                     <div className="relative aspect-[8/9] bg-secondary overflow-hidden">
-                        {/* <Image
-                            src={displayVariant?.images?.[0] ?? "/placeholder.png"}
-                            alt={product.title}
-                            fill
-                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            loading="lazy"
-                        /> */}
                         <Swiper
                             modules={[Autoplay]}
                             autoplay={{
@@ -83,20 +81,18 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                                 disableOnInteraction: false,
                             }}
                             loop={true}
-                            className="w-full h-full"
+                            className="w-full h-full relative z-0"
                         >
-                            {(displayVariant?.images?.length
-                                ? displayVariant.images
-                                : ["/placeholder.png"]
-                            ).map((img, index) => (
-                                <SwiperSlide key={index}>
+                            {gallery.map((img, slideIndex) => (
+                                <SwiperSlide key={`${product.id}-slide-${slideIndex}`}>
                                     <div className="relative w-full h-full">
                                         <Image
                                             src={img}
-                                            alt={`${product.title}-${index}`}
+                                            alt={`${product.title} image ${slideIndex + 1}`}
                                             fill
                                             className="object-cover"
                                             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                            loading="lazy"
                                         />
                                     </div>
                                 </SwiperSlide>
@@ -105,22 +101,23 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
 
                         {/* Discount badge */}
                         {displayVariant && displayVariant.discount > 0 && (
-                            <span className="absolute top-3 left-3 gradient-sale text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                            <span className="absolute top-3 left-3 z-10 gradient-sale text-white text-xs font-bold px-2.5 py-1 rounded-full">
                                 {displayVariant.discount}% OFF
                             </span>
                         )}
 
                         {/* Out of stock */}
                         {!inStock && (
-                            <div className="absolute inset-0 bg-background/60 flex items-center justify-center">
+                            <div className="absolute inset-0 z-10 bg-background/60 flex items-center justify-center">
                                 <span className="bg-card text-muted-foreground text-sm font-semibold px-4 py-2 rounded-full border border-border">Out of Stock</span>
                             </div>
                         )}
 
                         {/* Wishlist button */}
                         <button
+                            type="button"
                             onClick={handleWishlist}
-                            className="absolute top-3 right-3 p-2 rounded-full bg-card/85 backdrop-blur-sm hover:bg-card transition-colors shadow-sm"
+                            className="absolute top-3 right-3 p-2 rounded-full bg-card/85 backdrop-blur-sm hover:bg-card transition-colors shadow-sm z-10"
                             aria-label={isWished ? 'Remove from wishlist' : 'Add to wishlist'}
                         >
                             <Heart className={`w-4 h-4 transition-colors ${isWished ? 'fill-primary text-primary' : 'text-foreground'}`} />
@@ -128,8 +125,9 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
 
                         {/* Quick Add — hover */}
                         {inStock && (
-                            <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="absolute bottom-0 left-0 right-0 z-10 p-3 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <button
+                                    type="button"
                                     onClick={handleAddToCart}
                                     className="w-full gradient-primary text-white py-2 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
                                 >

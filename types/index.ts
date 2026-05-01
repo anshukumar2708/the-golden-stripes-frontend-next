@@ -5,11 +5,11 @@ export interface SizeVariant {
   price: number;
   originalPrice: number;
   discount: number;
-  images: string[];
 }
 
 export interface ColorVariant {
   color: string;
+  images: string[];
   sizes: SizeVariant[];
 }
 export interface Product {

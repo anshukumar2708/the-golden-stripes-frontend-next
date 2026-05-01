@@ -28,13 +28,21 @@ export default function WishlistClient() {
     }
 
     const handleAddAllToCart = () => {
+        let addedCount = 0;
+
         items.forEach(product => {
             const selection = getDefaultProductSelection(product);
             if (selection.variant && selection.variant.stock > 0) {
                 dispatch(addToCart({ product, size: selection.size, color: selection.color }));
+                addedCount += 1;
             }
         });
-        toast.success(`${items.length} items added to cart`);
+
+        if (addedCount > 0) {
+            toast.success(`${addedCount} ${addedCount === 1 ? 'item' : 'items'} added to cart`);
+        } else {
+            toast.error('No available wishlist items could be added to cart');
+        }
     };
 
     return (
@@ -46,6 +54,7 @@ export default function WishlistClient() {
                 </div>
                 {items.length > 1 && (
                     <button
+                        type="button"
                         onClick={handleAddAllToCart}
                         className="flex items-center gap-2 gradient-primary text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition-opacity"
                     >
@@ -69,6 +78,7 @@ export default function WishlistClient() {
                         >
                             <ProductCard product={product} index={i} />
                             <button
+                                type="button"
                                 onClick={() => { dispatch(removeFromWishlist(product.id)); toast.success('Removed from wishlist'); }}
                                 className="absolute top-2 left-2 p-1.5 bg-destructive/90 text-white rounded-full hover:bg-destructive transition-colors z-10"
                                 aria-label="Remove from wishlist"

@@ -58,8 +58,12 @@ export function getSelectedProductSelection(product: Product, color?: string, si
 
 export function getProductImages(product: Product, color?: string, size?: string): string[] {
   const selected = getSelectedProductSelection(product, color, size);
-  const selectedImages = selected.variant?.images.filter(Boolean) ?? [];
-  const allImages = getVariants(product).flatMap(variant => variant.sizes.flatMap(sizeVariant => sizeVariant.images)).filter(Boolean);
+  const selectedImages = selected.variant ? getVariants(product).find(v => v.color === selected.color)?.images.filter(Boolean) ?? [] : [];
+  const allImages = Array.from(
+    new Set(
+      getVariants(product).flatMap(variant => variant.images.filter(Boolean))
+    )
+  );
 
   return selectedImages.length > 0 ? selectedImages : allImages;
 }

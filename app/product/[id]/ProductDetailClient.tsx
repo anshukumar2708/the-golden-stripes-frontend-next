@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useMemo, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -48,12 +48,12 @@ export default function ProductDetailClient({ product, similar }: Props) {
         setZoomPos({ x, y });
     };
 
-    const colors = getProductColors(product);
-    const sizes = getProductSizes(product, selectedColor);
-    const selection = getSelectedProductSelection(product, selectedColor, selectedSize);
+    const colors = useMemo(() => getProductColors(product), [product]);
+    const sizes = useMemo(() => getProductSizes(product, selectedColor), [product, selectedColor]);
+    const selection = useMemo(() => getSelectedProductSelection(product, selectedColor, selectedSize), [product, selectedColor, selectedSize]);
     const selectedVariant = selection.variant;
-    const inStock = Boolean(selectedVariant && selectedVariant.stock > 0);
-    const images = getProductImages(product, selectedColor, selectedSize);
+    const inStock = useMemo(() => Boolean(selectedVariant && selectedVariant.stock > 0), [selectedVariant]);
+    const images = useMemo(() => getProductImages(product, selectedColor, selectedSize), [product, selectedColor, selectedSize]);
 
     const handleColorChange = (color: string) => {
         const nextSelection = getSelectedProductSelection(product, color);
@@ -89,7 +89,7 @@ export default function ProductDetailClient({ product, similar }: Props) {
         }
     };
 
-    const gallery = images.length > 0 ? images : ['/placeholder.png'];
+    const gallery = useMemo(() => (images.length > 0 ? images : ['/placeholder.png']), [images]);
 
     const stars = Array.from({ length: 5 }, (_, i) => i < Math.floor(product.rating));
 
@@ -240,6 +240,7 @@ export default function ProductDetailClient({ product, similar }: Props) {
                     {/* Add to Cart / Buy Now */}
                     <div className="flex gap-3 flex-wrap">
                         <motion.button
+                            type="button"
                             whileTap={{ scale: 0.97 }}
                             onClick={handleAdd}
                             disabled={!inStock}
@@ -249,6 +250,7 @@ export default function ProductDetailClient({ product, similar }: Props) {
                             Add to Cart
                         </motion.button>
                         <motion.button
+                            type="button"
                             whileTap={{ scale: 0.97 }}
                             onClick={handleBuyNow}
                             disabled={!inStock}
@@ -258,6 +260,7 @@ export default function ProductDetailClient({ product, similar }: Props) {
                             Buy Now
                         </motion.button>
                         <motion.button
+                            type="button"
                             whileTap={{ scale: 0.9 }}
                             onClick={() => { dispatch(toggleWishlist(product)); toast.success(isWished ? 'Removed from wishlist' : 'Added to wishlist'); }}
                             className={`p-3 rounded-xl border-2 transition-colors ${isWished ? 'border-primary bg-accent' : 'border-border hover:border-primary/50'}`}

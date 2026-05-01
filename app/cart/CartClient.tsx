@@ -42,6 +42,7 @@ export default function CartClient() {
             <div className="flex items-center justify-between mb-6">
                 <h1 className="text-2xl font-display font-bold text-foreground">Shopping Cart ({items.length})</h1>
                 <button
+                    type="button"
                     onClick={() => { dispatch(clearCart()); toast.success('Cart cleared'); }}
                     className="text-sm text-muted-foreground hover:text-destructive transition-colors flex items-center gap-1"
                 >
@@ -58,7 +59,6 @@ export default function CartClient() {
                             const variant = getCartItemVariant(item);
                             const price = variant?.price ?? 0;
                             const originalPrice = variant?.originalPrice ?? price;
-                            console.log("item:", item, "variant:", variant);
                             return (
                                 <motion.div
                                     key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`}
@@ -77,6 +77,7 @@ export default function CartClient() {
                                             width={96}
                                             height={112}
                                             className="w-full h-full object-cover"
+                                            loading="lazy"
                                         />
                                     </Link>
 
@@ -94,7 +95,9 @@ export default function CartClient() {
                                             </p>
                                         )} */}
 
-                                        {/* Price */}
+                                        <p className="text-xs text-muted-foreground mt-1.5">
+                                            {item.selectedSize} · {item.selectedColor}
+                                        </p>
                                         <div className="flex items-center gap-2 mt-1.5">
                                             <span className="text-base font-bold text-foreground">{format(price)}</span>
                                             {originalPrice > price && (
@@ -106,6 +109,7 @@ export default function CartClient() {
                                         <div className="flex items-center justify-between mt-2.5">
                                             <div className="flex items-center gap-1 bg-secondary rounded-lg">
                                                 <button
+                                                    type="button"
                                                     onClick={() => dispatch(updateQuantity({ productId: item.product.id, size: item.selectedSize, color: item.selectedColor, quantity: item.quantity - 1 }))}
                                                     className="p-1.5 hover:text-primary transition-colors text-foreground"
                                                     aria-label="Decrease quantity"
@@ -114,6 +118,7 @@ export default function CartClient() {
                                                 </button>
                                                 <span className="text-sm font-semibold text-foreground w-7 text-center">{item.quantity}</span>
                                                 <button
+                                                    type="button"
                                                     onClick={() => dispatch(updateQuantity({ productId: item.product.id, size: item.selectedSize, color: item.selectedColor, quantity: item.quantity + 1 }))}
                                                     className="p-1.5 hover:text-primary transition-colors text-foreground"
                                                     aria-label="Increase quantity"
@@ -123,6 +128,7 @@ export default function CartClient() {
                                             </div>
 
                                             <button
+                                                type="button"
                                                 onClick={() => { dispatch(removeFromCart({ productId: item.product.id, size: item.selectedSize, color: item.selectedColor })); toast.success('Removed from cart'); }}
                                                 className="p-1.5 text-muted-foreground hover:text-destructive transition-colors"
                                                 aria-label="Remove item"
@@ -158,7 +164,7 @@ export default function CartClient() {
                                     className="bg-transparent text-sm outline-none flex-1 text-foreground placeholder:text-muted-foreground py-2"
                                 />
                             </div>
-                            <button className="px-3 py-2 border border-primary text-primary text-sm rounded-lg font-medium hover:bg-accent transition-colors">
+                            <button type="button" className="px-3 py-2 border border-primary text-primary text-sm rounded-lg font-medium hover:bg-accent transition-colors">
                                 Apply
                             </button>
                         </div>

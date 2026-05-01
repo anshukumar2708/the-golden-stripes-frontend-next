@@ -15,7 +15,7 @@ export default function Footer() {
                         <p className="text-sm text-muted-foreground leading-relaxed">Your destination for elegant, modern fashion. Curated styles for every occasion — worldwide.</p>
                         <div className="flex gap-3 mt-4">
                             {[{ Icon: Instagram, label: 'Instagram' }, { Icon: Facebook, label: 'Facebook' }, { Icon: Twitter, label: 'Twitter' }, { Icon: Youtube, label: 'YouTube' }].map(({ Icon, label }) => (
-                                <button key={label} aria-label={label} className="p-2 rounded-full bg-secondary hover:bg-accent hover:text-primary transition-colors text-muted-foreground">
+                                <button key={label} type="button" aria-label={label} className="p-2 rounded-full bg-secondary hover:bg-accent hover:text-primary transition-colors text-muted-foreground">
                                     <Icon className="w-4 h-4" />
                                 </button>
                             ))}

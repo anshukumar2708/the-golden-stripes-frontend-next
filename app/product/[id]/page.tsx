@@ -21,6 +21,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const images = getProductImages(product);
     const displayVariant = getProductDisplayVariant(product);
 
+    const metaImage = images[0] ?? '/placeholder.png';
+
     return {
         title: `${product.title} — ${product.brand}`,
         description: product.description,
@@ -28,14 +30,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         openGraph: {
             title: product.title,
             description: product.description,
-            images: [{ url: images[0], width: 800, height: 800, alt: product.title }],
+            images: [{ url: metaImage, width: 800, height: 800, alt: product.title }],
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
             title: product.title,
             description: product.description,
-            images: [images[0]],
+            images: [metaImage],
         },
         other: {
             'product:price:amount': String(displayVariant?.price ?? 0),

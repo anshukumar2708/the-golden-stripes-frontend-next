@@ -280,7 +280,7 @@ export default function CheckoutClient() {
                                     )}
 
                                     <div className="flex gap-3">
-                                        <button onClick={() => setStep('address')} className="px-5 py-3 rounded-xl border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors">
+                                        <button type="button" onClick={() => setStep('address')} className="px-5 py-3 rounded-xl border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors">
                                             ← Back
                                         </button>
                                         <button
@@ -313,22 +313,22 @@ export default function CheckoutClient() {
                                             const variant = getCartItemVariant(item);
                                             const price = variant?.price ?? 0;
                                             return (
-                                            <div key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`} className="flex gap-3">
-                                                <div className="w-12 h-14 bg-secondary rounded-lg overflow-hidden flex-shrink-0">
-                                                    <Image src={getProductPrimaryImage(item.product, item.selectedColor, item.selectedSize)} alt={item.product.title} width={48} height={56} className="w-full h-full object-cover" />
+                                                <div key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`} className="flex gap-3">
+                                                    <div className="w-12 h-14 bg-secondary rounded-lg overflow-hidden flex-shrink-0">
+                                                        <Image src={getProductPrimaryImage(item.product, item.selectedColor, item.selectedSize)} alt={item.product.title} width={48} height={56} className="w-full h-full object-cover" loading="lazy" />
+                                                    </div>
+                                                    <div className="flex-1 min-w-0">
+                                                        <p className="text-sm font-medium text-foreground line-clamp-1">{item.product.title}</p>
+                                                        <p className="text-xs text-muted-foreground">{item.selectedSize} · {item.selectedColor} · Qty: {item.quantity}</p>
+                                                    </div>
+                                                    <span className="text-sm font-bold text-foreground flex-shrink-0">{format(price * item.quantity)}</span>
                                                 </div>
-                                                <div className="flex-1 min-w-0">
-                                                    <p className="text-sm font-medium text-foreground line-clamp-1">{item.product.title}</p>
-                                                    <p className="text-xs text-muted-foreground">{item.selectedSize} · {item.selectedColor} · Qty: {item.quantity}</p>
-                                                </div>
-                                                <span className="text-sm font-bold text-foreground flex-shrink-0">{format(price * item.quantity)}</span>
-                                            </div>
                                             );
                                         })}
                                     </div>
 
                                     <div className="flex gap-3">
-                                        <button onClick={() => setStep('payment')} className="px-5 py-3 rounded-xl border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors">
+                                        <button type="button" onClick={() => setStep('payment')} className="px-5 py-3 rounded-xl border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors">
                                             ← Back
                                         </button>
                                         <button
